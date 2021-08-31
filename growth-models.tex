@@ -1,0 +1,103 @@
+\chapter{Growth Models}%
+\label{chap:growth-models}
+
+\begin{definition}
+  A \textbf{recursive} function is a function defined in terms of its
+  previous value(s).
+\end{definition}
+
+\begin{note}
+  A recursive function is easy to define, but hard to evaluate because
+  you have to compute all the previous values.
+\end{note}
+
+\begin{example}[Fibonacci Sequence]
+  The famous Fibonacci function is defined recursively as follows:
+  \[
+    F(x+2) = F(x)+F(x+1).
+  \]
+  Defining \(F(0)=0\) and \(F(1)=1\) yields the following sequence of
+  outputs:
+  \begin{align*}
+    F(0) &= 0 \\
+    F(1) &= 1 \\
+    F(2) &= F(0) + F(1) = 0+1 = 1 \\
+    F(3) &= F(1) + F(2) = 1+1 = 2 \\
+    F(4) &= F(2) + F(3) = 1+2 = 3 \\
+    F(5) &= F(3) + F(4) = 2+3 = 5 \\
+    F(6) &= F(4) + F(5) = 3+5 = 8 \\
+    F(7) &= F(5) + F(6) = 5+8 = 13 \\
+     & \: \: \: \vdots
+  \end{align*}
+  Each number in the sequence, is the sum of the previous two numbers:
+  \(0, 1, 1, 2, 3, 5, 8, 13, 21, 34\ldots\)
+\end{example}
+
+\section{Linear Growth}%
+\label{sec:linear-growth}
+
+\subsection{Recursive Linear Growth Model}%
+\label{sec:recursive-linear}
+
+Let \(P=\) population, \(x=\) unit of time, then we can define next
+years population, \(P(x+1)\) in terms of this years population,
+\(P(x)\), plus a fixed amount, \(d\).
+
+\begin{equation}
+  \boxed{P(x+1) = P(x) + d}\label{eq:recursive-linear-model}
+\end{equation}
+
+Thus \textbf{linear growth} (or decay) is characterized by the
+\emph{difference} between any two successive time periods being
+constant: \(d\).
+\[
+  P(x+1) - P(x) = d
+\]
+
+\subsection{Explicit Linear Growth Model}%
+\label{sec:explicit-linear}
+
+Let \(P_0\equiv P(0)\), and recall the recursive definition:
+\(P(x+1) = P(x) + d \)
+\begin{align*}
+  P(1) &= P_0 + d \\
+  P(2) &= P(1) + d = (P_0 + d) + d = P_0 + 2d \\
+  P(3) &= P(2) + d = (P_0 + 2d) + d = P_0 + 3d \\
+  P(4) &= P(3) + d = (P_0 + 3d) + d = P_0 + 4d \\
+       & \: \: \vdots \\
+  P(x) &= P_0 + xd\\
+  \intertext{Or equivalently,}
+  \Aboxed{P(x) &= dx + P_0}
+\end{align*}
+where \(d\) is the slope or growth rate, and \(P_0\) is the
+\(y\)--intercept, or initial population.
+
+\section{Exponential Growth}%
+\label{sec:exponential-growth}
+
+\subsection{Recursive Exponential Growth Model}%
+\label{sec:recursive-exponential}
+
+
+\subsection{Explicit Exponential Growth Model}%
+\label{sec:explicit-exponential}
+
+\subsection{Logarithms}%
+\label{sec:logarithms}
+
+
+\section{Logistic Growth}%
+\label{sec:logistic-growth}
+
+\section{Summary}%
+\label{sec:growth-models-summary}
+
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Notes"
+%%% End:

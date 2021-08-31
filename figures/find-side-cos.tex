@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,math}
+
+\begin{document}
+\begin{tikzpicture}[thick, scale=0.2]
+  \coordinate (a) at (0,0);
+  \coordinate (b) at (15.93,10.36);
+  \coordinate (c) at (15.93,0);
+  \draw
+  (a) -- node[above left] {\(19\)}
+  (b) pic["\(33^{\circ}\)", draw=black, -, angle eccentricity=1.5, angle radius=1cm]
+  {angle=c--a--b} --
+  (c) -- node[below] {\(x\)} cycle;
+  % Right angle square
+  \draw (c) rectangle ++(-2,2);
+\end{tikzpicture}
+\end{document}

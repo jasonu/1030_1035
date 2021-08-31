@@ -1,0 +1,13 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[thick,black]
+  (0,0) -- node[midway, below] {4}
+  (4,0) --
+  (4,2) --
+  (0,2) -- node[midway, left] {2} cycle;
+  \draw[thick,dashed,black] (0,2) -- (4,0);
+\end{tikzpicture}
+\end{document}

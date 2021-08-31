@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    axis equal,
+    axis lines=middle,
+    xmin=-1,xmax=8,
+    ymin=-1,ymax=7,
+    xlabel=\(x\),
+    ylabel=\(y\),
+    xtick={3,5},xticklabels={\(x_1\),\(x_2\)},
+    ytick={2,5},yticklabels={\(y_1\),\(y_2\)}
+    ]
+    \node[label={225:{\((x_1,y_1)\)}},circle,fill,inner sep=1.3pt] at (axis cs:3,2) {};
+    \node[label={45:{\((x_2,y_2)\)}},circle,fill,inner sep=1.3pt] at (axis cs:5,5) {};
+    \draw[thick] (axis cs:3,2) -- node[midway,above left] {\(d\)} (axis cs:5,5);
+  \end{axis}
+\end{tikzpicture}
+\end{document}

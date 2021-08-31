@@ -1,0 +1,43 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[scale=0.4]
+  % \coordinate (p) at (0,0);
+  % \coordinate (q) at (12,0);
+  % \coordinate (r) at (17,0);
+  % \coordinate (s) at (17,12);
+  % \coordinate (t) at (17,17);
+  % \coordinate (u) at (5,17);
+  % \coordinate (v) at (0,17);
+  \coordinate (w) at (0,5);
+  \coordinate (p) at (0,0);
+  \coordinate (q) at (4,0);
+  \coordinate (r) at (7,0);
+  \coordinate (s) at (7,4);
+  \coordinate (t) at (7,7);
+  \coordinate (u) at (3,7);
+  \coordinate (v) at (0,7);
+  \coordinate (w) at (0,3);
+  \filldraw[cyan!50]
+  (p) -- node[midway,below,black] {\(b\)}
+  (q) -- node[midway,above,black] {\(c\)}
+  (w) -- node[midway,left,black] {\(a\)}
+  (p);
+  \filldraw[cyan!50]
+  (r) -- node[midway,right,black] {\(b\)}
+  (s) -- node[midway,left,black] {\(c\)}
+  (q) -- node[midway,below,black] {\(a\)}
+  (r);
+  \filldraw[cyan!50]
+  (t) -- node[midway,above,black] {\(b\)}
+  (u) -- node[midway,below,black] {\(c\)}
+  (s) -- node[midway,right,black] {\(a\)}
+  (t);
+  \filldraw[cyan!50]
+  (v) -- node[midway,left,black] {\(b\)}
+  (w) -- node[midway,right,black] {\(c\)}
+  (u) -- node[midway,above,black] {\(a\)}
+  (v);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,44 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{math}
+
+\begin{document}
+\tikzmath{\xoff=6;}
+\begin{tikzpicture}[
+  thick,
+  trig/.style={
+    circle,
+    fill=black,
+    thick,
+    inner sep=1.3pt,
+  }
+  ]
+  % Left triangle
+  \node (c1) at (0,0) [trig,label=below left:\(C\)]{};
+  \node (a1) at (1.2,3)[trig,label=above:\(A\)]{};
+  \node (b1) at (4,0) [trig,label=below right:\(B\)]{};
+  % \node (d1) at (0,3.3) [trig,label=above left:\(D\)]{};
+  \draw (c1) -- (a1) node[midway,above] {\(b\)};
+  \draw (c1) -- (b1) node[midway,below] {\(a\)};
+  \draw (a1) -- (b1) node[midway,above] {\(c\)};
+  % \draw[cyan] (c1) -- (d1) node[midway,left] {\(b\)};
+  % \draw[cyan] (b1) -- (d1) node[midway,below] {\(c\)};
+  % \draw[cyan] (a1) -- (d1);
+  % % Right angle square
+  % \draw[cyan] (c1) rectangle ++(0.25,0.25);
+
+  % Right triangle
+  \node (c2) at ({0+\xoff},0) [trig,label=below left:\(C\)]{};
+  \node (a2) at ({-1.2+\xoff},2.7)[trig,label=above left:\(A\)]{};
+  \node (b2) at ({4+\xoff},0) [trig,label=below right:\(B\)]{};
+  % \node (d2) at ({0+\xoff},3) [trig,label=above:\(D\)]{};
+  \draw (c2) -- (a2) node[midway,below] {\(b\)};
+  \draw (c2) -- (b2) node[midway,below] {\(a\)};
+  \draw (a2) -- (b2) node[midway,above] {\(c\)};
+  % \draw[cyan] (c2) -- (d2) node[midway,right] {\(b\)};
+  % \draw[cyan] (b2) -- (d2) node[midway,above] {\(c\)};
+  % \draw[cyan] (a2) -- (d2);
+  % % Right angle square
+  % \draw[cyan] (c2) rectangle ++(0.25,0.25);
+\end{tikzpicture}
+\end{document}

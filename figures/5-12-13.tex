@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,math}
+
+\begin{document}
+\tikzmath{\r=0.25;}
+\begin{tikzpicture}
+  \coordinate (A) at (\r*0,\r*0);
+  \coordinate (B) at (\r*12,\r*0);
+  \coordinate (C) at (\r*12,\r*5);
+  \draw[thick]
+  (A)
+  pic["\(\theta\)", draw=black, -,
+  angle eccentricity=1.3, angle radius=\r*4cm]
+  {angle=B--A--C} -- node[midway,below] {12}
+  (B) -- node[midway,right] {5}
+  (C) -- node [midway,sloped,above] {13}
+  cycle;
+  % right angle
+  \draw[thick] (\r*11,0) -- (\r*11,\r*1) -- (\r*12,\r*1);
+\end{tikzpicture}
+\end{document}

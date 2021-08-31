@@ -1,0 +1,34 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,math}
+
+\begin{document}
+\tikzmath{\r=2;\off=3;}
+\begin{tikzpicture}
+  \coordinate (A) at (0,0);
+  \coordinate (C) at ({\r*sqrt(3)},0);
+  \coordinate (B) at ({\r*sqrt(3)},\r);
+  \coordinate (D) at ({\r*(0+\off)},0);
+  \coordinate (E) at ({\r*(sqrt(3)+\off)},0);
+  \coordinate (F) at ({\r*(sqrt(3)+\off)},\r);
+
+  % Left-side right triangle
+  \draw[thick] (A)
+  pic["\(\theta\)", draw=black, -, angle eccentricity=1.3, angle radius=0.75cm]
+  {angle=C--A--B} -- node[midway,below] {adj.}
+  (C) -- node[midway,right] {opp.}
+  (B) -- node[midway,sloped,above] {hyp.}
+  cycle;
+  % Right angle square
+  \draw [thick] (C) rectangle ++(-0.25,0.25);
+
+  % Right-side right triangle
+  \draw[thick] (D) -- node[midway,below] {opp.}
+  (E) -- node[midway,right] {adj.}
+  (F) pic["\(\theta\)", draw=black, -, angle eccentricity=1.3, angle radius=0.75cm]
+  {angle=D--F--E} -- node[midway,sloped,above] {hyp.}
+  cycle;
+  % Right angle square
+  \draw [thick] (E) rectangle ++(-0.25,0.25);
+\end{tikzpicture}
+\end{document}

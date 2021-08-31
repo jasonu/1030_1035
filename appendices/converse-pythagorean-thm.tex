@@ -1,0 +1,39 @@
+\chapter{Converse of the Pythagorean Theorem}%
+\label{app:converse-pythagorean-thm}
+
+This \href{http://jwilson.coe.uga.edu/EMAT6680/Brown/6690/ConPythagThm.htm}%
+{proof} comes from Jim Wilson at the University of Georgia.
+
+The proof uses a technique called \textbf{proof by contradiction}
+which is a little tricky, thus it has been relegated to obscurity in
+this appendix. The idea of proof by contradiction is to assume that
+the statement you are trying to prove is false, and then to show that
+this leads to a logical contradiction, thus the statement must be
+true. The proof also uses isosceles triangles. An \textbf{isosceles}
+triangle has two sides that are the same length and two angles that
+are equal.
+
+\begin{proof}
+  Suppose the triangle is \emph{not} a right triangle. Label the
+  vertices \(A, B\) and \(C\) as pictured. There are two possibilities
+  for the measure of angle \(C\): less than \(90^{\circ}\) (left
+  picture) or greater than \(90^{\circ}\) (right picture).
+  \begin{center}
+    \includestandalone[scale=0.75]{figures/converse-pythagorean-thm-1}
+  \end{center}
+  Construct a perpendicular line segment \(CD\) as pictured below.
+  \begin{center}
+    \includestandalone[scale=0.75]{figures/converse-pythagorean-thm-2}
+  \end{center}
+  By the Pythagorean theorem, \(BD^{2} = a^{2} + b^{2} = c^{2}\), and
+  so \(BD = c\). Thus we have isosceles triangles \(ACD\) and \(ABD\).
+  It follows that we have congruent angles \(CDA = CAD\) and
+  \(BDA = DAB\). But this contradicts the apparent inequalities (see
+  picture) \(BDA < CDA = CAD < DAB\) (left picture) or
+  \(DAB < CAD = CDA < BDA\) (right picture).
+\end{proof}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Notes"
+%%% End:

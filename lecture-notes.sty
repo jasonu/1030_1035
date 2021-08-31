@@ -1,0 +1,326 @@
+\ProvidesPackage{lecture-notes}
+
+\RequirePackage{standalone}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage[titletoc]{appendix}
+\RequirePackage{booktabs}
+\RequirePackage{cancel}
+\RequirePackage[en-US]{datetime2}
+\RequirePackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\RequirePackage{enumitem}
+\RequirePackage{etoolbox}
+\RequirePackage{fancyhdr}
+\RequirePackage{framed}
+\RequirePackage[T1]{fontenc} % Output font encoding for international characters
+%\RequirePackage[myheadings]{fullpage}
+\RequirePackage[top=1in,bottom=1in,margin=1in]{geometry}
+\RequirePackage{graphicx}
+\graphicspath{{images/}}
+% \RequirePackage[utf8]{inputenc} % Required for inputting international characters
+\RequirePackage{manfnt}
+\RequirePackage{marginnote}
+\RequirePackage{mathtools}
+\RequirePackage[ntheorem]{empheq}
+\RequirePackage{multicol}
+\RequirePackage{multirow}
+\RequirePackage[amsmath,thmmarks,framed,hyperref]{ntheorem}
+\usetagform{default}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween}
+% \RequirePackage{polynom}
+%\RequirePackage{qrcode}
+%\RequirePackage{relsize}
+\RequirePackage{siunitx}
+\let\DeclareUSUnit\DeclareSIUnit
+\let\US\SI
+\DeclareUSUnit\inch{in}
+\DeclareUSUnit\foot{ft}
+\DeclareUSUnit\yard{yd}
+\DeclareUSUnit\mile{mi}
+\DeclareUSUnit\pound{lb}
+\DeclareUSUnit\year{y}
+\DeclareUSUnit\day{d}
+\DeclareUSUnit\revolution{rev}
+
+\RequirePackage{subfig}
+%\RequirePackage{systeme} % for systems of equations
+%\RequirePackage{todonotes}
+\RequirePackage{tikz}
+\usetikzlibrary{calc,angles,quotes,math}
+\RequirePackage{tkz-euclide}
+\usetkzobj{all}
+% \usetikzlibrary{shapes}
+% \usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+% \RequirePackage{tikzlings}
+% \RequirePackage{tikzlings-addons}
+% \RequirePackage{tikzlings-sloths}
+\RequirePackage{url}
+\RequirePackage{wasysym}
+\RequirePackage{wrapfig}
+\RequirePackage{xcolor}
+
+%% Uncomment just one of the following to try different fonts
+% \RequirePackage{cmbright}
+% \RequirePackage{pxfonts}
+\RequirePackage{mathpazo}
+\RequirePackage{hyperref}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Setup Hyperlinks and PDF Metadata
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=cyan,
+  filecolor=magenta,
+  urlcolor=cyan,
+  pdfinfo={%
+    Title={Lecture Notes for Math 1030},
+    Author={Jason Underdown},
+    CreationDate={D:20210815052200},
+    Subject={
+      Mathematics,%
+      Trigonometry,%
+      Voting Theory,%
+      Graph Theory,%
+      Finance,%
+      Statistics,%
+      Normal Distribution},
+  }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  English Language Macros and Symbols
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand*{\eg}{e.g.\@\xspace}
+\newcommand*{\ie}{i.e.\@\xspace}
+\newcommand*{\etc}{%
+    \@ifnextchar{.}%
+        {etc}%
+        {etc.\@\xspace}%
+}
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Math Macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\set}[2]{\left\{  #1  \; | \; #2 \right\}}
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\vect}[2]{\left< #1, #2 \right>}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} % See mathtools documentation
+\DeclarePairedDelimiter\norm{\lVert}{\rVert} % See mathtools documentation
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+% Macro for coloring math equations
+\makeatletter
+\def\mathcolor#1#{\@mathcolor{#1}}
+\def\@mathcolor#1#2#3{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\makeatother
+
+% makes the closed root symbol the default for all types of roots
+\LetLtxMacro{\oldsqrt}{\sqrt}
+\renewcommand{\sqrt}[1][\ ]{%
+  \def\DHLindex{#1}\mathpalette\DHLhksqrt}
+\def\DHLhksqrt#1#2{%
+  \setbox0=\hbox{$#1\oldsqrt[\DHLindex]{#2\,}$}\dimen0=\ht0
+  \advance\dimen0-0.2\ht0
+  \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+  {\box0\lower0.71pt\box2}}
+
+% declare a variant "v", a "v" with a pointy bottom for integration by parts
+\DeclareSymbolFont{matha}{OML}{txmi}{m}{it}% txfonts
+\DeclareMathSymbol{\varv}{\mathord}{matha}{118}
+
+% Double and Triple underline
+\newcommand*{\dunderline}[1]{\ensuremath{\underline{\underline{#1}}}}
+\newcommand*{\tunderline}[1]{\ensuremath{\underline{\underline{\underline{#1}}}}}
+
+% Definitions
+\newcommand{\mydef}[1]{\textbf{#1}}
+
+% \DeclareMathOperator{\MyRe}{\mathsf{Re}}
+% \DeclareMathOperator{\MyIm}{\mathsf{Im}}
+% \newcommand{\Real}[1]{\MyRe \!\left[ #1 \right]}
+% \newcommand{\Imag}[1]{\MyIm \!\left[ #1 \right]}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\myReal}[1]{\Re \left[ #1 \right]}
+\newcommand{\myImag}[1]{\Im \left[ #1 \right]}
+
+
+% The command \eqbox{...} boxes equations with more padding than just \boxed.
+% Note that it will not work in an align environment.
+
+\newlength{\eqboxstorage}
+\newcommand{\eqbox}[1]{%
+  \setlength{\eqboxstorage}{\fboxsep}
+  \setlength{\fboxsep}{6pt}
+  \boxed{#1}
+  \setlength{\fboxsep}{\eqboxstorage}
+}
+
+% Make improvements to the cancel package
+\makeatletter
+
+    %patch \canto@vector to correctly place script.
+    \pretocmd{\canto@vector}{\edef\testneg{#4<0}}{}{\@latex@error{Patch fail}}
+    \patchcmd{\canto@vector}{^}{\ifnum\testneg_\else^\fi}{}{\@latex@error{Patch fail}}
+    \patchcmd{\canto@vector}{\raise#2\dimen@}{\raise\dimexpr\ifnum\testneg-\ht\z@+\fi#2\dimen@}{}{\@latex@error{Patch fail}}
+
+    \renewcommand\@cancelto[5][]{%
+        \OriginalPictureCmds\@begin@tempboxa\hbox{\m@th$#4{#5}$}%
+        \dimen@\width % wide
+        \@min@pt\dimen@ 2\@min@pt\totalheight4
+        \ifdim\totalheight<\dimen@
+         \@tempcnta\totalheight \multiply\@tempcnta 5 \divide\@tempcnta\dimen@
+         \@tempdimb 3\p@ % extra width for arrowhead ("+2")
+         \advance\dimen@ \ifcase\@tempcnta 5\or 5\or 4\or 3\else 2\fi \p@
+         \@min@pt\dimen@9\advance\dimen@\p@
+         \edef\@tempa{\ifcase\@tempcnta 544{#1 1}\or 544{#1 1}\or 542{#1 1}\or 444{#1 3}\else 361{#1 1}\fi
+              {\strip@pt\dimen@}{\strip@pt\@tempdimb}}%
+         \def\@tempb{Cancel #4 to #2; case wide }%
+        \else % tall
+         \advance\totalheight3\p@ % "+2"
+         \@tempcnta\dimen@ \multiply\@tempcnta 5 \divide\@tempcnta\totalheight
+         \advance\totalheight3\p@ % "+2"
+         \dimen@ \ifcase\@tempcnta .25\or .25\or .5\or .75\else 1\fi \totalheight
+         \@tempdimb \ifcase\@tempcnta .8\or .8\or 1.2\or 1.5\else 2\fi \p@
+         \edef\@tempa{\ifcase\@tempcnta 081{#1 4}\or 081{#1 4}\or 181{#1 2}\or 273{#1 4}\else 361{#1 1}\fi
+              {\strip@pt\dimen@}{\strip@pt\@tempdimb}}%
+        \fi
+        \dimen@\height
+        \setbox\@tempboxa\hbox{$\m@th\vcenter{\box\@tempboxa}$}%
+        \advance\dimen@-\height % the difference in height
+        \unitlength\p@ \canc@thinlines
+        {\/\raise\dimen@\hbox{\expandafter\canto@vector\@tempa{#2}{#3}}}%
+        \@end@tempboxa
+    }
+
+    \def\bcancelto#1#2{\mathchoice    %  smaller option (default)
+      {\@cancelto[-]\textstyle{#1}\displaystyle{#2}}%
+      {\@cancelto[-]\scriptstyle{#1}\textstyle{#2}}%
+      {\@cancelto[-]\scriptscriptstyle{#1}\scriptstyle{#2}}%
+      {\@cancelto[-]\scriptscriptstyle{#1}\scriptscriptstyle{#2}}%
+      }
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PGF Macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% define 'base style'
+\pgfplotsset{base style/.append style={%
+    small,
+    axis lines=middle,
+    grid=major,
+    grid style={black!65},
+    xlabel={$x$},
+    ylabel={$y$}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Document Specific Environments and Macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\dnote}[1]{%
+  \noindent % I guess this is intended...
+  \begin{tabular}{@{}m{0.13\textwidth}@{}m{0.87\textwidth}@{}}%
+    \Large\textdbend &#1%
+  \end{tabular}%
+  \par % ... and this too.
+}
+
+\newcommand{\think}[1]{%
+  \noindent % I guess this is intended...
+  \begin{tabular}{@{}m{0.13\textwidth}@{}m{0.87\textwidth}@{}}%
+    \huge\manimpossiblecube &#1%
+  \end{tabular}%
+  \par % ... and this too.
+}
+
+\newcommand*{\myOutlineRightArrow}{\vcenter{\hbox{\Huge\pointer}}}
+
+\theoreminframepreskip{0cm}
+\theoreminframepostskip{0cm}
+\theoremframepreskip{0.2cm}
+\theoremframepostskip{0.2cm}
+\theorembodyfont{\normalfont}
+
+\theoremstyle{nonumberplain}
+\theoremsymbol{\ensuremath{\Box}}
+\theoremseparator{.}
+\newtheorem{proof}{\textit{Proof}}
+
+\theoremstyle{nonumberbreak}
+\theoremsymbol{}
+\newtheorem{remark}{Remark}
+\newtheorem{note}{Note}
+\newframedtheorem{definition}{Definition}
+\newframedtheorem{theorem}{Theorem}
+\newframedtheorem{algorithm}{Algorithm}
+\theoremseparator{:}
+\newframedtheorem{learning-objectives}{Learning Objectives}
+
+\theoremstyle{nonumberplain}
+\theoremseparator{:}
+\theoremsymbol{\ensuremath{\triangle}}
+\newframedtheorem{solution}{Solution}
+
+\theoremstyle{break}
+\theoremseparator{}
+\theoremsymbol{}
+\theoremseparator{\vspace{0.5ex}}
+\newtheorem{exercise}{Exercise}
+\theoremseparator{\vspace{0.5ex}}
+\newtheorem{example}{Example}
+
+% True/False questions
+\DeclareRobustCommand{\tfblank}{\rule[-1pt]{0.35in}{.5pt}}
+\newcommand{\question}{\item}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Headers and Footers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\fancypagestyle{toc}{%
+  \fancyhf{}%
+  \fancyhead[C]{\textsl{Table of Contents}}%
+  \fancyfoot[C]{\thepage}%
+}
+
+\fancypagestyle{myfancypage}{%
+  \fancyhf{}%
+  \fancyhead[RO, LE]{\thepage}%
+  \fancyhead[RE, LO]{\S\hspace{4pt}\thesection}%
+  \fancyhead[C]{\textsl{Math 1030 Lecture Notes}}%
+}
+
+\renewcommand{\headrulewidth}{0.4pt}

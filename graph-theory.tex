@@ -1,0 +1,147 @@
+\chapter{Graph Theory}%
+\label{chap:graph-theory}
+
+\section{Vocabulary}%
+\label{sec:vocabulary}
+
+\begin{definition}
+  A \textbf{vertex} is a dot or circle, often labelled with a letter
+  or short name. An edge is a line or arc which connects two
+  \textbf{vertices}. A \textbf{loop} is a special kind of edge that
+  connects a vertex to itself.
+\end{definition}
+
+\begin{definition}
+  A \textbf{graph} is a pair of sets, a set of \textbf{vertices}, and
+  a set of \textbf{edges}.
+\end{definition}
+
+\begin{definition}
+  The \textbf{degree} of a vertex is the number of edges meeting at
+  that vertex.
+\end{definition}
+
+\begin{definition}
+  A \textbf{path} is an ordered sequence of edges.
+\end{definition}
+\begin{note}
+  For brevity we sometimes denote a path as a sequence of vertices.
+\end{note}
+
+\begin{definition}
+  A \textbf{circuit} is a path that begins and ends at the same
+  vertex.
+\end{definition}
+
+\begin{definition}
+  A graph is \textbf{connected} if there is a path from any vertex to
+  any other vertex.
+\end{definition}
+
+\begin{definition}
+  A \textbf{weighted graph} is a graph where each edge has a numerical
+  value associated with it. The weights often correspond with
+  distances, travel time, or travel cost.
+\end{definition}
+
+\section{Dijkstra's Algorithm (Shortest Path)}%
+\label{sec:dijkstras-algorithm}
+
+\begin{algorithm}[Dijkstra's Algorithm]
+  \begin{enumerate}
+  \item Mark the ending vertex with a distance of zero. Designate this
+    vertex as current.
+
+  \item Find all vertices leading to the current vertex. Calculate
+    their distances to the end. Since we already know the distance the
+    current vertex is from the end, this will just require adding the
+    most recent edge. Don't record this distance if it is longer than
+    a previously recorded distance.
+
+  \item Mark the current vertex as visited. We will never look at this
+    vertex again.
+
+  \item Mark the vertex with the smallest distance as current, and
+    repeat from step 2.
+  \end{enumerate}
+\end{algorithm}
+
+\section{Eulerian Circuits and the Chinese Postman Problem}%
+\label{sec:eulerian-circuits}
+
+\subsection{Fleury's Algorithm}%
+\label{sub:Fleury's Algorithm}
+
+\begin{algorithm}[Chinese Postman --- Fleury]
+  \begin{enumerate}
+  \item Start at any vertex if finding an Euler circuit. If finding an
+    Euler path, start at one of the two vertices with odd degree.
+  \item Choose any edge leaving your current vertex, provided deleting
+    that edge will not separate the graph into two disconnected sets
+    of edges.
+  \item Add that edge to your circuit, and delete it from the graph.
+  \item Continue until you're done.
+  \end{enumerate}
+\end{algorithm}
+
+\section{Hamiltonian Circuits and the Traveling Salesman Problem}%
+\label{sec:hamiltonian-circuits}
+
+\subsection{Brute Force}%
+\label{sub:brute-force}
+
+\begin{algorithm}[Brute Force]
+  \begin{enumerate}
+  \item Create a list of all possible circuits and their costs.
+  \item Choose the circuit with the least cost.
+  \end{enumerate}
+\end{algorithm}
+
+\subsection{Nearest Neighbor Algorithm (NNA)}%
+\label{sub:nearest-neighbor}
+
+\begin{algorithm}[Nearest Neighbor Algorithm]
+  \begin{enumerate}
+  \item Select a starting point.
+  \item Move to the nearest unvisited vertex (via the edge with
+    smallest weight).
+  \item Repeat until the circuit is complete.
+  \end{enumerate}
+\end{algorithm}
+
+\subsection{Repeated Nearest Neighbor Algorithm (RNNA)}%
+\label{sub:repeated-nearest-neighbor}
+
+\begin{algorithm}[Repeated Nearest Neighbor Algorithm]
+  \begin{enumerate}
+  \item Do the Nearest Neighbor Algorithm starting at each vertex.
+  \item Choose the circuit produced with minimal total weight.
+  \end{enumerate}
+\end{algorithm}
+
+\subsection{Sorted Edges Algorithm (SEA)}%
+\label{sub:sorted-edges}
+
+\begin{algorithm}[Sorted Edges Algorithm]
+  \begin{enumerate}
+  \item Select the cheapest unused edge in the graph.
+  \item Repeat step 1, adding the cheapest unused edge to the circuit,
+    unless:
+    \begin{enumerate}
+    \item adding the edge would create a circuit that doesn't contain
+      all vertices, or
+    \item adding the edge would give a vertex degree 3.
+    \end{enumerate}
+  \item Repeat until a circuit containing all vertices is formed.
+  \end{enumerate}
+\end{algorithm}
+
+\section{Spanning Trees and Kruskal's Algorithm}%
+\label{sec:spanning-trees}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Notes"
+%%% End:

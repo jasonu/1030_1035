@@ -1,0 +1,12 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}
+  \coordinate (0) at (0,0);
+  \coordinate (A) at (4,0);
+  \coordinate (B) at (4,3);
+  \draw[thick] (0) -- (A) -- (B) -- cycle;
+  \draw [thick] (A) rectangle ++(-0.5,0.5) node[above left]{\(90^{\circ}\)};
+\end{tikzpicture}
+\end{document}
