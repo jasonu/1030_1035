@@ -1,8 +1,42 @@
 \chapter{Voting Theory}%
 \label{chap:voting-theory}
 
-\section{Plurality Method}%
+In many decision making situations, it is necessary to gather the
+group consensus. This happens when a group of friends decides which
+movie to watch, when a company decides which product design to
+manufacture, and when a democratic country elects its leaders.
+
+While the basic idea of voting is fairly universal, the method by
+which those votes are used to determine a winner can vary. Amongst a
+group of friends, you may decide upon a movie by voting for all the
+movies you're willing to watch, with the winner being the one with the
+greatest approval. A company might eliminate unpopular designs then
+revote on the remaining. A country might look for the candidate with
+the most votes.
+
+In deciding upon a winner, there is always one main goal: to reflect
+the preferences of the people in the most fair way possible. However,
+we will see that there is more than one criteria for fairness. In
+fact, there are several different criteria which can be used to
+determine whether an election or decision process is fair or not.
+
+In this chapter we will look at several methods for a group to make a
+choice and analyze each method's strengths and weaknesses.
+
+\section{Plurality Voting Method}%
 \label{sec:plurality-method}
+
+In the United States, most elections choose the winner based upon
+which ever candidate receives the most votes. Notice that it is
+\emph{not} necessary to receive a \emph{majority} (more than half) of
+the votes, just more votes than any other candidate.
+
+\begin{definition}
+  The \textbf{plurality} voting method chooses the winner based on the
+  candidate which receives more votes than any other candidate.
+\end{definition}
+
+\newpage
 
 \begin{exercise}
   If Alex, Betty and Chuck are running for the office of club
@@ -16,18 +50,208 @@
   \end{enumerate}
 \end{exercise}
 
+A two-party system often develops in a plurality voting system. In
+this system, voters have a single vote, which they can cast for a
+single candidate in their district, in which only one legislative seat
+is available. In plurality voting (also referred to as
+\textbf{first-past-the-post}), in which the winner of the seat is
+determined purely by the candidate with the most votes, several
+characteristics can serve to discourage the development of third
+parties and reward the two major parties.
+
+Because the first-past-the-post system gives only the (plurality)
+winner in each district a seat, a party that consistently comes in
+second or third in many or most districts will not gain any seats in
+the legislature, even if it receives a substantial minority of the
+vote.
+
+Another challenge to a third party is both statistical and tactical.
+Political scientist Maurice Duverger presents the example of an
+election in which 100,000 moderate voters and 80,000 radical voters
+are to vote for candidates for a single seat or office. If two
+moderate parties ran candidates and one radical candidate ran (and
+every voter voted), the radical candidate would tend to win unless one
+of the moderate candidates gathered fewer than 20,000 votes.
+Appreciating this risk, moderate voters would be inclined to vote for
+the moderate candidate they deemed likely to gain more votes, with the
+goal of defeating the radical candidate. To win, then, either the two
+moderate parties must merge, or one moderate party must fail, as the
+voters gravitate to the two strongest parties. Duverger called this
+trend polarization.
+
 \section{Instant Runoff Voting (Ranked Choice Voting)}%
 \label{sec:irv}
 
-\subsection{Preference Schedules}%
-\label{sub:preference-schedules}
+What if we required the eventual winner to receive a \emph{majority}
+in order to win? This may not be possible if there are more than two
+candidates. A way around this problem is to do \textbf{runoff voting}
+where the election is held in stages. After each vote, if a single
+candidate has a majority of the votes then that candidate wins, but if
+not, then the candidate with the least votes is eliminated and
+everyone votes again. Clearly this is time consuming and inefficient.
+One way around the inefficiencey of runoff voting is to modify the
+ballot to allow voters to rank the candidates by order of preference.
+
+\begin{definition}\label{def:preference-ballot-schedule}
+  A \textbf{preference ballot} is a ballot in which the voter ranks
+  the choices in order of preference.
+
+  Once the election has been held we tally the votes and create a
+  summary of voter preferences. We call this summary of the ballots a
+  \textbf{preference schedule}.
+\end{definition}
+
+\begin{exercise}
+  Below is an example of a preference schedule for candidates A,B,C and D.
+  \begin{table}[h]
+    \centering
+    \begin{tabular}{ccccc}
+      \toprule
+      Num. Ballots & 8 & 17 & 4 & 11 \\
+      \midrule
+      1st & A & D & B & C \\
+      2nd & B & A & A & B \\
+      3rd & C & C & D & A \\
+      4th & D & B & C & D \\
+      \bottomrule
+    \end{tabular}
+    \caption{Example preference schedule}%
+    \label{tab:example-preference-schedule}
+  \end{table}
+  Notice that there were a total of \( 8+17+4+11=40 \) votes cast.
+  This means that for a candidate to get a \emph{majority} of the
+  votes they must get at least 21 votes because 21 is the smallest
+  whole number that is more than half of 40.
+
+  \begin{enumerate}
+  \item Who wins under the plurality method?
+
+    \vspace*{\stretch{1}}
+
+  \item Who is the winner under instant-runoff voting?
+
+    \vspace*{\stretch{5}}
+
+  \end{enumerate}
+\end{exercise}
+
+\newpage
+
+\begin{exercise}
+  Suppose there is an election with four candidates. Two are from the
+  two dominant political parties: Democrat and Republican. The other
+  two are from third parties: Libertarian and Socialist. A preference
+  schedule is given below.
+  \begin{center}
+    \begin{tabular}{ccccc}
+      \toprule
+      Num. Ballots & 8 & 18 & 20 & 4 \\
+      \midrule
+      1st & L & R & D & S \\
+      2nd & R & L & S & D \\
+      3rd & D & S & L & R \\
+      4th & S & D & R & L \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  Answer the following questions using the data in the preference
+  schedule above.
+  \begin{enumerate}
+  \item How many people voted?
+
+    \vspace*{\stretch{1}}
+
+  \item How many votes are required for a majority?
+
+    \vspace*{\stretch{1}}
+
+  \item What is the smallest possible number of votes a candidate
+    could win with under the plurality method of choosing?
+
+    \vspace*{\stretch{1}}
+
+
+  \item Who wins under instant runoff voting?
+    \vspace*{\stretch{5}}
+
+  \end{enumerate}
+\end{exercise}
+
+\newpage
 
 \section{Borda Count}%
 \label{sec:borda-count}
 
+Borda Count is another voting method, named for Jean-Charles de Borda,
+who developed the system in 1770.
+
+\begin{definition}
+  In the \textbf{Borda Count} method, points are assigned to
+  candidates based on their ranking; 1 point for last choice, 2 points
+  for second-to-last choice, and so on. The point values for all
+  ballots are totaled, and the candidate with the largest point total
+  is the winner.
+\end{definition}
+
+\begin{exercise}\label{ex:borda-count}
+  Suppose an election resulted in the following preference schedule.
+  Which of the three candidates: A, B, or C would win under the Borda
+  count method of choosing?
+  \begin{center}
+    \begin{tabular}{ccccc}
+      \toprule
+      Num. Ballots & 13 & 4 & 14 \\
+      \midrule
+      1st & B & A & C \\
+      2nd & A & B & A \\
+      3rd & C & C & B \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\begin{exercise}\label{ex:irv}
+  Which candidate would win under instant runoff voting?
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\newpage
 
 \section{Copeland's Method (Pairwise Comparison)}%
 \label{sec:copelands-method}
+
+Sometimes a candidate can be preferred by voters when compared to
+every other candidate, but still not win the election. This seems
+unfair to most people.
+
+\begin{definition}
+  If one candidate is preferable to all other candidates in
+  head-to-head matchups, then that candidate is called the
+  \textbf{Condorcet candidate}.
+\end{definition}
+
+\begin{exercise}\label{ex:copeland}
+  Use the preference schedule from exercise~\ref{ex:borda-count} to
+  determine if there was a Condorcet candidate in that election. The
+  table is reproduced below.
+  \begin{center}
+    \begin{tabular}{ccccc}
+      \toprule
+      Num. Ballots & 13 & 4 & 14 \\
+      \midrule
+      1st & B & A & C \\
+      2nd & A & B & A \\
+      3rd & C & C & B \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
 
 
 \section{Fairness Criteria}%
