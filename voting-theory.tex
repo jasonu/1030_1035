@@ -2,41 +2,33 @@
 \label{chap:voting-theory}
 
 In many decision making situations, it is necessary to gather the
-group consensus. This happens when a group of friends decides which
-movie to watch, when a company decides which product design to
-manufacture, and when a democratic country elects its leaders.
-
-While the basic idea of voting is fairly universal, the method by
-which those votes are used to determine a winner can vary. Amongst a
-group of friends, you may decide upon a movie by voting for all the
-movies you're willing to watch, with the winner being the one with the
-greatest approval. A company might eliminate unpopular designs then
-revote on the remaining. A country might look for the candidate with
-the most votes.
+group consensus. While the basic idea of voting is fairly universal,
+many methods for determining a winner have been created.
 
 In deciding upon a winner, there is always one main goal: to reflect
 the preferences of the people in the most fair way possible. However,
-we will see that there is more than one criteria for fairness. In
-fact, there are several different criteria which can be used to
-determine whether an election or decision process is fair or not.
+as we will see, there is no single criterion for determining whether a
+voting method is fair. In fact, there are several different criteria
+which can be used to determine whether a voting method is fair or not.
 
-In this chapter we will look at several methods for a group to make a
-choice and analyze each method's strengths and weaknesses.
+In this chapter we will look at several voting methods and analyze
+each method's strengths and weaknesses.
 
 \section{Plurality Voting Method}%
 \label{sec:plurality-method}
 
-In the United States, most elections choose the winner based upon
-which ever candidate receives the most votes. Notice that it is
-\emph{not} necessary to receive a \emph{majority} (more than half) of
-the votes, just more votes than any other candidate.
+In the United States and in many other countries throughout the world,
+most elections are decided by which ever candidate receives the most
+votes. Notice that it is \emph{not} necessary to receive a
+\emph{majority} (more than half) of the votes, just more votes than
+any other candidate.
 
 \begin{definition}
   The \textbf{plurality} voting method chooses the winner based on the
-  candidate which receives more votes than any other candidate.
+  candidate which receives more votes than any other candidate. This
+  method is also known as \textbf{first-past-the-post} in an analogy
+  to horse racing.
 \end{definition}
-
-\newpage
 
 \begin{exercise}
   If Alex, Betty and Chuck are running for the office of club
@@ -50,36 +42,63 @@ the votes, just more votes than any other candidate.
   \end{enumerate}
 \end{exercise}
 
-A two-party system often develops in a plurality voting system. In
-this system, voters have a single vote, which they can cast for a
-single candidate in their district, in which only one legislative seat
-is available. In plurality voting (also referred to as
-\textbf{first-past-the-post}), in which the winner of the seat is
-determined purely by the candidate with the most votes, several
-characteristics can serve to discourage the development of third
-parties and reward the two major parties.
+\newpage
 
-Because the first-past-the-post system gives only the (plurality)
-winner in each district a seat, a party that consistently comes in
-second or third in many or most districts will not gain any seats in
-the legislature, even if it receives a substantial minority of the
-vote.
+When there are only two candidates or choices, plurality voting works
+extremely well, but as soon as there are three or more candidates or
+choices, problems can arise.
 
-Another challenge to a third party is both statistical and tactical.
-Political scientist Maurice Duverger presents the example of an
-election in which 100,000 moderate voters and 80,000 radical voters
-are to vote for candidates for a single seat or office. If two
-moderate parties ran candidates and one radical candidate ran (and
-every voter voted), the radical candidate would tend to win unless one
-of the moderate candidates gathered fewer than 20,000 votes.
-Appreciating this risk, moderate voters would be inclined to vote for
-the moderate candidate they deemed likely to gain more votes, with the
-goal of defeating the radical candidate. To win, then, either the two
-moderate parties must merge, or one moderate party must fail, as the
-voters gravitate to the two strongest parties. Duverger called this
-trend polarization.
+The first problem is that under plurality voting, the winner may not
+receive a majority of the votes. This seems unfair to many voters. The
+second problem is that plurality voting tends to discourage the
+development of third parties and reward the two major parties. This is
+because plurality voting gives only the winner in each district a
+seat, a party that consistently comes in second or third in many or
+most districts will not gain any seats in the legislature, even if it
+receives a substantial minority of the vote.
 
-\section{Instant Runoff Voting (Ranked Choice Voting)}%
+\begin{definition}
+  \textbf{Tactical voting}, or \textbf{insincere voting} occurs in
+  elections with more than two candidates, when a voter supports
+  another candidate more strongly than their sincere preference in
+  order to prevent an undesirable outcome.
+\end{definition}
+
+Because of tactical or insincere voting, voters sometimes feel like
+they must choose between the lesser of two evils. This can lead to a
+general lack of enthusiasm for voting.
+
+Lack of enthusiasm is not the only problem that plurality voting tends
+to create. Plurality voting sometimes leads to polarization of the
+electorate into supporting just two parties.
+
+Consider an election in which 100,000 moderate voters and 80,000
+radical voters are to vote for candidates for a single seat or office.
+If two moderate parties ran candidates and one radical candidate ran
+(and every voter voted), the radical candidate would tend to win
+unless one of the moderate candidates gathered fewer than 20,000
+votes. Appreciating this risk, moderate voters would be inclined to
+vote for the moderate candidate they deemed likely to gain more votes,
+with the goal of defeating the radical candidate. To win, then, either
+the two moderate parties must merge, or one moderate party must fail,
+as the voters gravitate to the two strongest parties. If this scenario
+happens enough times it can push voters to only support the two
+strongest parties and third parties are often (but not always) shut
+out of the electoral process.
+
+Plurality voting is a rather blunt tool for determining the will of
+the people when there are several candidates. This is because each
+voter only gives one piece of information at the polls, their favorite
+candidate, and due to insincere voting, that information may not even
+be accurate. What if we gathered more information from each voter
+about their preferences? Perhaps the extra information could be used
+to generate fairer outcomes. This is the general idea behind
+\textbf{ranked choice voting} methods. Many of the voting methods that
+have been created use this idea to try to make elections fairer.
+
+\newpage
+
+\section{Instant Runoff Voting}%
 \label{sec:irv}
 
 What if we required the eventual winner to receive a \emph{majority}
@@ -88,21 +107,26 @@ candidates. A way around this problem is to do \textbf{runoff voting}
 where the election is held in stages. After each vote, if a single
 candidate has a majority of the votes then that candidate wins, but if
 not, then the candidate with the least votes is eliminated and
-everyone votes again. Clearly this is time consuming and inefficient.
-One way around the inefficiencey of runoff voting is to modify the
-ballot to allow voters to rank the candidates by order of preference.
+everyone votes again.
+
+Runoff voting is time consuming and inefficient. One way around the
+inefficiency of runoff voting is to modify the ballot to allow voters
+to rank the candidates by order of preference.
 
 \begin{definition}\label{def:preference-ballot-schedule}
   A \textbf{preference ballot} is a ballot in which the voter ranks
-  the choices in order of preference.
-
-  Once the election has been held we tally the votes and create a
-  summary of voter preferences. We call this summary of the ballots a
+  the choices in order of preference. Once the election has been held
+  we tally the votes and create a tabular summary of voter
+  preferences. We call this tabular summary of the ballots a
   \textbf{preference schedule}.
 \end{definition}
 
 \begin{exercise}
-  Below is an example of a preference schedule for candidates A,B,C and D.
+  Below is an example of a preference schedule for candidates A,B,C
+  and D. Notice that there were a total of \( 8+17+4+11=40 \) votes
+  cast. This means that for a candidate to get a \emph{majority} of
+  the votes they must get at least 21 votes because 21 is the smallest
+  whole number that is more than half of 40.
   \begin{table}[h]
     \centering
     \begin{tabular}{ccccc}
@@ -118,10 +142,6 @@ ballot to allow voters to rank the candidates by order of preference.
     \caption{Example preference schedule}%
     \label{tab:example-preference-schedule}
   \end{table}
-  Notice that there were a total of \( 8+17+4+11=40 \) votes cast.
-  This means that for a candidate to get a \emph{majority} of the
-  votes they must get at least 21 votes because 21 is the smallest
-  whole number that is more than half of 40.
 
   \begin{enumerate}
   \item Who wins under the plurality method?
@@ -182,8 +202,9 @@ ballot to allow voters to rank the candidates by order of preference.
 \section{Borda Count}%
 \label{sec:borda-count}
 
-Borda Count is another voting method, named for Jean-Charles de Borda,
-who developed the system in 1770.
+Borda Count is another voting method that uses a preference ballot. It
+is named after Jean-Charles de Borda, who developed the system in
+1770.
 
 \begin{definition}
   In the \textbf{Borda Count} method, points are assigned to
@@ -229,14 +250,17 @@ unfair to most people.
 
 \begin{definition}
   If one candidate is preferable to all other candidates in
-  head-to-head matchups, then that candidate is called the
+  head-to-head match ups, then that candidate is called the
   \textbf{Condorcet candidate}.
 \end{definition}
 
+\begin{note}
+  Not every election has a Condorcet candidate.
+\end{note}
+
 \begin{exercise}\label{ex:copeland}
-  Use the preference schedule from exercise~\ref{ex:borda-count} to
-  determine if there was a Condorcet candidate in that election. The
-  table is reproduced below.
+  The preference schedule from exercise~\ref{ex:borda-count} is
+  reproduced below.
   \begin{center}
     \begin{tabular}{ccccc}
       \toprule
@@ -249,10 +273,57 @@ unfair to most people.
     \end{tabular}
   \end{center}
 
+  \begin{enumerate}
+  \item Determine if this election had a Condorcet candidate.
+
+    \vspace*{\stretch{1}}
+
+  \item In exercise~\ref{ex:irv} we determined the winner of this
+    election under instant-runoff-voting. Is that winner and the
+    Condorcet candidate the same person? Do you think this is fair?
+
+    \vspace*{\stretch{1}}
+  \end{enumerate}
+\end{exercise}
+
+\newpage
+
+\begin{definition}
+  In \textbf{Copeland's method} we award points to each candidate
+  based upon how that candidate does in pairwise comparisons with
+  every other candidate. The candidate with the most points wins.
+  \begin{center}
+    \begin{tabular}[h]{l}
+      \toprule
+      1 point for pairwise win \\ \\
+      \(\tfrac{1}{2}\) point for pairwise tie \\ \\
+      0 points for pairwise loss \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{definition}
+
+\begin{exercise}
+  Use Copeland's method to determine the winner of the following
+  preference schedule.
+
+  \begin{center}
+    \begin{tabular}[h]{ccccc}
+      \toprule
+      Num. Ballots & 13 & 15 & 9 & 11 \\
+      \midrule
+      1st & C & A & D & B \\
+      2nd & D & B & B & C \\
+      3rd & A & C & A & D \\
+      4th & B & D & C & A \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+
   \vspace*{\stretch{1}}
 \end{exercise}
 
-
+\newpage
 
 \section{Fairness Criteria}%
 \label{sec:fairness criteria}
@@ -264,9 +335,9 @@ unfair to most people.
 \end{definition}
 
 \begin{description}
-\item[Plurality Criterion] \hfill \\
-  If there is a candidate that gets more votes than any other
-  candidate, then that candidate should win.
+% \item[Plurality Criterion] \hfill \\
+%   If there is a candidate that gets more votes than any other
+%   candidate, then that candidate should win.
 \item[Majority Criterion] \hfill \\
   If there is a candidate that has a majority (more than half) of
   first-place votes, then that candidate should win.
@@ -277,15 +348,227 @@ unfair to most people.
   If a candidate wins, and only changes that favor the winner are made
   to the preference ballots, then that candidate should still win.
 \item[Independence of Irrelevant Alternatives (IIA) Criterion] \hfill \\
-  If a candidate wins, and only losing candidates are removed from the
-  preference ballots, then that candidate should still win.
+  If a non-winning candidate is removed from the election, then that
+  should not change the winner.
 \end{description}
 
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{ccccc}
+    \toprule
+    & \multicolumn{4}{c}{Fairness Criteria} \\
+    Voting Method & Majority & Condorcet & Monotonicity & IIA \\
+    \toprule
+    Plurality & \cmark{} & \xmark{} & \cmark{} & \xmark{} \\
+    \midrule
+    Instant Runoff & \cmark{} & \xmark{} & \xmark{} & \xmark{} \\
+    \midrule
+    Borda Count & \xmark{} & \xmark{} & \cmark{} & \xmark{} \\
+    \midrule
+    Copeland & \cmark{} & \cmark{} & \cmark{} & \xmark{} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Voting Methods and Fairness Criteria \\ \cmark{} = always
+    satisfied \\ \xmark{} = may violate}%
+  \label{tab:voting-methods-fairness-criteria}
+\end{table}
+
+\newpage
+
+\begin{example}[IRV Can Violate the Monotonicity Criterion]
+  Consider the preference schedule below.
+  \begin{center}
+    \begin{tabular}[h]{ccccccc}
+      \toprule
+      Num. Ballots & 37 & 22 & 12 & 29 \\
+      \midrule
+      1st & Adams & Brown & Brown & Carter \\
+      2nd & Brown & Carter & Adams & Adams \\
+      3rd & Carter & Adams & Carter & Brown \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  Under instant runoff voting, Carter would be eliminated in the first
+  round, and Adams would be the winner with 66 votes to 34 votes for
+  Brown.
+
+  Now suppose that the results were announced, but election officials
+  accidentally destroyed the ballots before they could be certified,
+  and the votes had to be recast. Wanting to ``jump on the bandwagon'',
+  10 of the voters who originally voted in the order Brown, Adams,
+  Carter change their vote to favor the presumed winner, changing
+  those votes to Adams, Brown, Carter.
+  \begin{center}
+    \begin{tabular}[h]{ccccccc}
+      \toprule
+      Num. Ballots & 47 & 22 & 2 & 29 \\
+      \midrule
+      1st & Adams & Brown & Brown & Carter \\
+      2nd & Brown & Carter & Adams & Adams \\
+      3rd & Carter & Adams & Carter & Brown \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  In this re-vote, Brown will be eliminated in the first round, having
+  the fewest first-place votes. After transferring votes, we find that
+  Carter will win this election with 51 votes to Adams' 49 votes! Even
+  though the only vote changes made favored Adams, the change ended up
+  costing Adams the election. This doesn't seem fair. If voters change
+  their votes to increase the preference for a candidate, it should
+  not harm that candidate's chances of winning.
+\end{example}
+
+\newpage
+
+\begin{example}[Copeland Can Violate the IIA Criterion]
+  A committee is trying to award a scholarship to one of four
+  students, Anna (A), Brian (B), Carlos (C), and Dimitry (D). The
+  preference schedule is shown below:
+  \begin{center}
+    \begin{tabular}[h]{ccccccc}
+      \toprule
+      Num. Ballots & 5 & 5 & 6 & 4 \\
+      \midrule
+      1st & D & A & C & B \\
+      2nd & A & C & B & D \\
+      3rd & C & B & D & A \\
+      4th & B & D & A & C \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  Computation of Copeland point totals is as follows:
+  \begin{center}
+    \begin{tabular}[h!]{cccccc}
+      \toprule
+      Pair & Tallies & A & B & C & D \\
+      \toprule
+      A vs. B & 10 vs. 10 & 0.5 & 0.5 & & \\
+      A vs. C & 14 vs. 6  &   1 &     &   & \\
+      A vs. D & 5 vs. 15  &     &     &   & 1 \\
+      B vs. C & 4 vs. 16  &     &     & 1 & \\
+      B vs. D & 15 vs. 5  &     &   1 &   & \\
+      C vs. D & 11 vs. 9  &     &     & 1 & \\
+      \midrule
+
+      \multicolumn{2}{c}{Totals} & 1.5 & 1.5 & 2 & 1 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+
+  So Carlos is awarded the scholarship. However, the committee then
+  discovers that Dimitry was not eligible for the scholarship (he failed
+  his last math class). Even though this seems like it shouldn't affect
+  the outcome, the committee decides to recount the vote, removing
+  Dimitry from consideration. This reduces the preference schedule to:
+  \begin{center}
+    \begin{tabular}[h]{ccccccc}
+      \toprule
+      Num. Ballots & 5 & 5 & 6 & 4 \\
+      \midrule
+      1st & A & A & C & B \\
+      2nd & C & C & B & A \\
+      3rd & B & B & A & C \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  Re-computation of Copeland point totals is as follows:
+  \begin{center}
+    \begin{tabular}[h!]{ccccc}
+      \toprule
+      Pair & Tallies & A & B & C \\
+      \toprule
+      A vs. B & 10 vs. 10 & 0.5 & 0.5 & \\
+      A vs. C & 14 vs. 6  &   1 &     & \\
+      B vs. C & 4 vs. 16  &     &     & 1 \\
+      \midrule
+      \multicolumn{2}{c}{Totals} & 1.5 & 0.5 & 1 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  Suddenly Anna is the winner!
+\end{example}
+
+\newpage
 
 \section{Arrow's Impossibility Theorem}%
 \label{sec:arrows-impossibility-thm}
 
+Economist Kenneth Arrow was able to prove in 1949 that when an
+election has three or more candidates, no ranked choice voting method
+can simultaneously satisfy all fairness criteria. He won the 1972
+Nobel Prize in Economics for this work.
 
+\begin{theorem}[Arrow's Impossibility Theorem]
+No voting method can satisfy all fairness criteria.
+\end{theorem}
+
+\subsection{Approval Voting}%
+\label{sub:approval-voting}
+
+\begin{definition}
+\textbf{Approval voting} is where you mark all candidates you approve of
+without stating preference, \ie{} without ranking the candidates.
+\end{definition}
+
+\begin{exercise}
+  Determine the winner under approval voting.
+  \begin{center}
+    \begin{tabular}[h]{ccccccc}
+      \toprule
+      &\multicolumn{6}{c}{Number of Ballots}\\
+      Choice&10&21&17&13&18&16\\
+      \toprule
+      A&&&&\cmark&\cmark&\cmark\\
+      \midrule
+      B&\cmark&\cmark&\cmark&&&\\
+      \midrule
+      C&&\cmark&&\cmark&&\cmark\\
+      \midrule
+      D&\cmark&\cmark&&&\cmark&\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\newpage
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{lcccccccccc}
+    \toprule
+    Num. Ballots &Bob&Ann&Marv&Alice&Eve&Omar&Lupe&Dave&Tish&Jim\\
+    \toprule
+    Titanic &&\cmark&\cmark&&&\cmark&&\cmark&\cmark&\cmark\\
+    Scream &\cmark&&\cmark&\cmark&&\cmark&\cmark&&\cmark&\\
+    The Matrix &\cmark&\cmark&\cmark&\cmark&\cmark&&\cmark&&&\cmark\\
+    \bottomrule
+  \end{tabular}
+  \caption[Movie choice]{Using approval voting to choose a movie to watch.}%
+  \label{tab:movie-choice}
+\end{table}
+
+
+\begin{exercise}
+  Use Table~\ref{tab:movie-choice} and approval voting to determine
+  the movie to watch.
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+This is an easier method of voting because it does not force the voter
+to rank choices. The negatives to approval voting are twofold. First,
+it can easily violate the \emph{majority} fairness criterion. Second,
+approval voting is susceptible to strategic insincere voting, in
+whicha voter does not voter their true preference to try to increase
+the chances of their choice winning. For example, suppose Bob and
+Alice would much rather watch ``Scream''. Even though they may be okay
+with watching ``The Matrix'', if they remove it from their approval
+list, its chances of winning decrease and thus their chance to watch
+``Scream'' increases.
+
+\newpage
 
 
 

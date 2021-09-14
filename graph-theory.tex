@@ -5,8 +5,8 @@
 \label{sec:vocabulary}
 
 \begin{definition}
-  A \textbf{vertex} is a dot or circle, often labelled with a letter
-  or short name. An edge is a line or arc which connects two
+  A \textbf{vertex} is a dot or circle, often labeled with a letter
+  or short name. An \textbf{edge} is a line or arc which connects two
   \textbf{vertices}. A \textbf{loop} is a special kind of edge that
   connects a vertex to itself.
 \end{definition}
@@ -16,22 +16,53 @@
   a set of \textbf{edges}.
 \end{definition}
 
+\begin{figure}[h!]
+  \centering
+  \includestandalone{figures/example-graph}
+  \caption{Example graph}%
+  \label{fig:example-graph}
+\end{figure}
+
+\newpage
+
 \begin{definition}
   The \textbf{degree} of a vertex is the number of edges meeting at
   that vertex.
 \end{definition}
 
+\begin{example}
+  For the graph in Figure~\ref{fig:example-graph} and
+  Figure~\ref{fig:example-path-circuit} below, the vertices have the
+  following degrees:
+  \begin{align*}
+    \deg(A) &= 3 & \deg(D) &= 4 \\
+    \deg(B) &= 3 & \deg(E) &= 3 \\
+    \deg(C) &= 3 & \deg(F) &= 4 \\
+  \end{align*}
+\end{example}
+
 \begin{definition}
-  A \textbf{path} is an ordered sequence of edges.
+  A \textbf{path} is a sequence of edges.
 \end{definition}
+\begin{figure}[h!]
+  \centering
+  \includestandalone{figures/example-path-circuit}
+  \caption{Example path in red and example circuit in blue}%
+  \label{fig:example-path-circuit}
+\end{figure}
+
 \begin{note}
   For brevity we sometimes denote a path as a sequence of vertices.
+  That is, we will often denote the path in
+  Figure~\ref{fig:example-path-circuit} as \(P=A,B,C,F\)
 \end{note}
 
 \begin{definition}
   A \textbf{circuit} is a path that begins and ends at the same
   vertex.
 \end{definition}
+
+\newpage
 
 \begin{definition}
   A graph is \textbf{connected} if there is a path from any vertex to
@@ -44,8 +75,21 @@
   distances, travel time, or travel cost.
 \end{definition}
 
+\begin{definition}
+  A \textbf{graph algorithm} is like a function, it takes a graph as
+  input and maybe a starting point and outputs either a new graph, or
+  a path or a circuit. An algorithm is essentially a sequence of steps
+  or operations to perform on a graph to obtain a desired result.
+\end{definition}
+
 \section{Dijkstra's Algorithm (Shortest Path)}%
 \label{sec:dijkstras-algorithm}
+
+One common usage for graphs is pathfinding. In this case the vertices
+represent locations, \eg{} cities, and the edges represent roads, rail
+lines, or perhaps connecting flights. Most often these graphs will be
+weighted where the weights represent distance, travel time, or travel
+cost.
 
 \begin{algorithm}[Dijkstra's Algorithm]
   \begin{enumerate}
@@ -66,6 +110,44 @@
   \end{enumerate}
 \end{algorithm}
 
+\begin{note}
+  Dijkstra's algorithm is both \emph{efficient} and \emph{optimal}.
+  Efficient means that even when the input graph is very large, the
+  algorithm will produce a path quickly. Optimal means that it will
+  always find the shortest or cheapest path. As we shall see it is
+  somewhat rare for a graph algorithm to be both efficient and
+  optimal.
+\end{note}
+
+\newpage
+
+\begin{exercise}
+  Use Dijkstra's algorithm to determine the shortest drive time from
+  Seattle to Las Vegas. What is the total drive time? (The graph below
+  is weighted by drive time in hours.)
+
+  \bigskip
+
+  \includestandalone{figures/seattle-to-las-vegas}
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\newpage
+
+\begin{exercise}
+  Use Dijkstra's algorithm to determine the cheapest path from
+  A to G.
+
+  \bigskip
+
+  \includestandalone{figures/dijkstra-example}
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\newpage
+
 \section{Eulerian Circuits and the Chinese Postman Problem}%
 \label{sec:eulerian-circuits}
 
@@ -84,7 +166,7 @@
   \end{enumerate}
 \end{algorithm}
 
-\section{Hamiltonian Circuits and the Traveling Salesman Problem}%
+\section{Hamiltonian Circuits and the Traveling Salesman \\ Problem}%
 \label{sec:hamiltonian-circuits}
 
 \subsection{Brute Force}%
