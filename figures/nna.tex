@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\def\r{3}
+\def\t{360/5}
+\def\o{18}
+\begin{tikzpicture}
+  \node[shape=circle,draw=black] (C) at ({\r*cos(0*\t+\o)},{\r*sin(0*\t+\o)}) {C};
+  \node[shape=circle,draw=black] (B) at ({\r*cos(1*\t+\o)},{\r*sin(1*\t+\o)}) {B};
+  \node[shape=circle,draw=black] (A) at ({\r*cos(2*\t+\o)},{\r*sin(2*\t+\o)}) {A};
+  \node[shape=circle,draw=black] (E) at ({\r*cos(3*\t+\o)},{\r*sin(3*\t+\o)}) {E};
+  \node[shape=circle,draw=black] (D) at ({\r*cos(4*\t+\o)},{\r*sin(4*\t+\o)}) {D};
+
+  \path (A) edge node [above left] {3} (B);
+  \path (A) edge node [above] {15} (C);
+  \path (A) edge node [below left] {13} (D);
+  \path (A) edge node [left] {14} (E);
+  \path (B) edge node [above right] {10} (C);
+  \path (B) edge node [right] {5} (D);
+  \path (B) edge node [left] {9} (E);
+  \path (C) edge node [right] {12} (D);
+  \path (C) edge node [below right] {17} (E);
+  \path (D) edge node [below] {11} (E);
+\end{tikzpicture}
+\end{document}

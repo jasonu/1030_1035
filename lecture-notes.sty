@@ -121,7 +121,8 @@
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
-\newcommand{\set}[2]{\left\{  #1  \; | \; #2 \right\}}
+%\newcommand{\set}[2]{\left\{  #1  \; | \; #2 \right\}}
+\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\def\st{\;\delimsize\vert\;}#1}
 \renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
 \newcommand{\vect}[2]{\left< #1, #2 \right>}
 \DeclarePairedDelimiter\abs{\lvert}{\rvert} % See mathtools documentation
@@ -131,11 +132,9 @@
 % and \norm resizes the size of the brackets, and the
 % starred version does not.
 \makeatletter
-\let\oldabs\abs
-\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldabs\abs\def\abs{\@ifstar{\oldabs}{\oldabs*}}
 %
-\let\oldnorm\norm
-\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\let\oldnorm\norm\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
 \makeatother
 
 % Macro for coloring math equations
@@ -288,6 +287,7 @@
 \newtheorem{remark}{Remark}
 \newtheorem{note}{Note}
 \newframedtheorem{definition}{Definition}
+\newframedtheorem{notation}{Notation}
 \newframedtheorem{theorem}{Theorem}
 \newframedtheorem{algorithm}{Algorithm}
 \theoremseparator{:}
@@ -309,22 +309,3 @@
 % True/False questions
 \DeclareRobustCommand{\tfblank}{\rule[-1pt]{0.35in}{.5pt}}
 \newcommand{\question}{\item}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Headers and Footers
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\fancypagestyle{toc}{%
-  \fancyhf{}%
-  \fancyhead[C]{\textsl{Table of Contents}}%
-  \fancyfoot[C]{\thepage}%
-}
-
-\fancypagestyle{myfancypage}{%
-  \fancyhf{}%
-  \fancyhead[RO, LE]{\thepage}%
-  \fancyhead[RE, LO]{\S\hspace{4pt}\thesection}%
-  \fancyhead[C]{\textsl{Math 1030 Lecture Notes}}%
-}
-
-\renewcommand{\headrulewidth}{0.4pt}

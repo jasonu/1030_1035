@@ -80,6 +80,12 @@
   input and maybe a starting point and outputs either a new graph, or
   a path or a circuit. An algorithm is essentially a sequence of steps
   or operations to perform on a graph to obtain a desired result.
+
+  Some graph algorithms are \textbf{efficient} meaning that they are
+  guaranteed to finish in a short amount of time. Normal execution
+  times could be anywhere from a few milliseconds to a few hours. Some
+  graph algorithms are \textbf{optimal} meaning they are guaranteed to
+  find the best possible solution.
 \end{definition}
 
 \section{Dijkstra's Algorithm (Shortest Path)}%
@@ -111,12 +117,10 @@ cost.
 \end{algorithm}
 
 \begin{note}
-  Dijkstra's algorithm is both \emph{efficient} and \emph{optimal}.
-  Efficient means that even when the input graph is very large, the
-  algorithm will produce a path quickly. Optimal means that it will
-  always find the shortest or cheapest path. As we shall see it is
-  somewhat rare for a graph algorithm to be both efficient and
-  optimal.
+  Dijkstra's algorithm is both \emph{efficient} and \emph{optimal}. It
+  is so efficient (fast) that it is used by GPS navigation systems to
+  find optimal routes between two points in real time, \ie{} while
+  you're driving.
 \end{note}
 
 \newpage
@@ -148,26 +152,18 @@ cost.
 
 \newpage
 
-\section{Eulerian Circuits and the Chinese Postman Problem}%
-\label{sec:eulerian-circuits}
-
-\subsection{Fleury's Algorithm}%
-\label{sub:Fleury's Algorithm}
-
-\begin{algorithm}[Chinese Postman --- Fleury]
-  \begin{enumerate}
-  \item Start at any vertex if finding an Euler circuit. If finding an
-    Euler path, start at one of the two vertices with odd degree.
-  \item Choose any edge leaving your current vertex, provided deleting
-    that edge will not separate the graph into two disconnected sets
-    of edges.
-  \item Add that edge to your circuit, and delete it from the graph.
-  \item Continue until you're done.
-  \end{enumerate}
-\end{algorithm}
-
 \section{Hamiltonian Circuits and the Traveling Salesman \\ Problem}%
 \label{sec:hamiltonian-circuits}
+
+\begin{definition}
+  A \textbf{Hamiltonian circuit} is a circuit that visits every vertex
+  once with no repeats. Being a circuit, it must start and end at the
+  same vertex. A \textbf{Hamiltonian path} also visits every vertex
+  once with no repeats, but does not have to start and end at the same
+  vertex.
+\end{definition}
+
+
 
 \subsection{Brute Force}%
 \label{sub:brute-force}
@@ -191,6 +187,17 @@ cost.
   \end{enumerate}
 \end{algorithm}
 
+\begin{exercise}\label{ex:nna}
+  Use the graph below to find a Hamiltonian path via NNA beginning at
+  vertex B.
+
+  \includestandalone{figures/nna}
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\newpage
+
 \subsection{Repeated Nearest Neighbor Algorithm (RNNA)}%
 \label{sub:repeated-nearest-neighbor}
 
@@ -200,6 +207,19 @@ cost.
   \item Choose the circuit produced with minimal total weight.
   \end{enumerate}
 \end{algorithm}
+
+\begin{exercise}
+  Use the graph to find a Hamiltonian path via RNNA. This is the same
+  graph as used in Exercise~\ref{ex:nna}, so you may use your previous
+  result where we did NNA starting at vertex B.
+
+
+  \includestandalone{figures/nna}
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\newpage
 
 \subsection{Sorted Edges Algorithm (SEA)}%
 \label{sub:sorted-edges}
@@ -218,8 +238,88 @@ cost.
   \end{enumerate}
 \end{algorithm}
 
+\begin{exercise}\label{ex:sea}
+  Use the graph to find a solution to the traveling salesman problem
+  via the Sorted Edges Algorithm.
+
+  \includestandalone{figures/sea}
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\newpage
+
+\section{Eulerian Circuits and the Chinese Postman Problem}%
+\label{sec:eulerian-circuits}
+
+The picture on the cover of these lecture notes is of the city of
+K\:{o}nigsberg which is now called Kaliningrad. At the time that the
+mathematician Leonhard Euler (pronounced like ``oiler'') lived there
+there was a famous question that puzzled the residents. Is it possible
+to start in one location and take a walk such that you cross each of
+the seven bridges near the center of town just once and end up back
+where you started?
+
+\subsection{Fleury's Algorithm}%
+\label{sub:Fleury's Algorithm}
+
+\begin{algorithm}[Chinese Postman --- Fleury]
+  \begin{enumerate}
+  \item Start at any vertex if finding an Euler circuit. If finding an
+    Euler path, start at one of the two vertices with odd degree.
+  \item Choose any edge leaving your current vertex, provided deleting
+    that edge will not separate the graph into two disconnected sets
+    of edges.
+  \item Add that edge to your circuit, and delete it from the graph.
+  \item Continue until you're done.
+  \end{enumerate}
+\end{algorithm}
+
 \section{Spanning Trees and Kruskal's Algorithm}%
 \label{sec:spanning-trees}
+
+\begin{definition}
+  \begin{itemize}
+  \item A \textbf{tree} is an undirected graph (edges are not arrows)
+    in which any two vertices are connected by exactly one path.
+  \item A \textbf{spanning tree} is an undirected subgraph of a graph
+    \(G\) that is a tree which includes all the vertices of \(G\).
+  \item A \textbf{minimum cost spanning tree} is the spanning tree
+    with the smallest total edge weight.
+  \end{itemize}
+\end{definition}
+
+\begin{algorithm}[Kruskal's Algorithm]
+  \begin{enumerate}
+  \item Select the cheapest unused edge in the graph.
+  \item Repeat step 1, unless
+    \begin{itemize}
+    \item adding the edge would create a circuit, or
+    \item until a spanning tree is formed.
+    \end{itemize}
+  \end{enumerate}
+\end{algorithm}
+
+\begin{note}
+  Similar to Dijkstra's algorithm, Kruskal's algorithm is both
+  \emph{optimal} (it finds the minimum cost spanning tree) and
+  \emph{efficient} (it terminates in a reasonable amount of time).
+\end{note}
+
+\begin{exercise}
+  A company requires reliable internet and phone connectivity between
+  their five offices (named A, B, C, D and E for simplicity) in New
+  York City. They decide to lease dedicated lines from the phone
+  company. The phone company will charge for each link made. The costs
+  in thousands of dollars per year are shown in the graph. Use
+  Kruskal's algorithm to find a minimal cost spanning tree for the
+  five offices.
+
+  \includestandalone{figures/kruskal}
+\end{exercise}
+
+
+
 
 
 

@@ -5,6 +5,24 @@
 % \toggletrue{printanswers}
 % % \togglefalse{printanswers}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Headers and Footers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\fancypagestyle{toc}{%
+  \fancyhf{}%
+  \fancyhead[C]{\textsl{Table of Contents}}%
+  \fancyfoot[C]{\thepage}%
+}
+
+\fancypagestyle{myfancypage}{%
+  \fancyhf{}%
+  \fancyhead[RO, LE]{\thepage}%
+  \fancyhead[RE, LO]{\S\hspace{4pt}\thesection}%
+  \fancyhead[C]{\textsl{Math 1030 Lecture Notes}}%
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
 \includeonly{%
   trigonometry, problem-solving, voting-theory,%
   graph-theory %, growth-models, finance,%
