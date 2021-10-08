@@ -7,15 +7,19 @@
 \end{definition}
 
 \begin{note}
-  A recursive function is easy to define, but hard to evaluate because
-  you have to compute all the previous values.
+  Recursive functions are \emph{easy to define}, but \emph{tedious to
+    evaluate} because you often have to compute several previous
+  values. For this reason, they are often used in computer programs,
+  but not when doing computation by hand.
 \end{note}
 
 \begin{example}[Fibonacci Sequence]
-  The famous Fibonacci function is defined recursively as follows:
+  The famous Fibonacci function, \(F\), is defined \emph{recursively}
+  as follows:
   \[
-    F(x+2) = F(x)+F(x+1).
+    F(x) = F(x-2)+F(x-1).
   \]
+
   Defining \(F(0)=0\) and \(F(1)=1\) yields the following sequence of
   outputs:
   \begin{align*}
@@ -39,8 +43,8 @@
 \subsection{Recursive Linear Growth Model}%
 \label{sec:recursive-linear}
 
-Let \(P=\) population, \(x=\) unit of time, then we can define next
-years population, \(P(x+1)\) in terms of this years population,
+Let \(P=\) population, \(x=\) time in years, then we predict next
+years population, \(P(x+1)\), will be this year's population,
 \(P(x)\), plus a fixed amount, \(d\).
 
 \begin{equation}
@@ -48,29 +52,44 @@ years population, \(P(x+1)\) in terms of this years population,
 \end{equation}
 
 Thus \textbf{linear growth} (or decay) is characterized by the
-\emph{difference} between any two successive time periods being
-constant: \(d\).
+\emph{difference} in population from two \emph{consecutive} years
+equaling the constant: \(d\).
 \[
-  P(x+1) - P(x) = d
+  \boxed{P(x+1) - P(x) = d}
 \]
 
 \subsection{Explicit Linear Growth Model}%
 \label{sec:explicit-linear}
 
+\begin{figure}[b]
+  \centering
+  \includestandalone[scale=0.8]{figures/lin-growth-varying-m}
+  \includestandalone[scale=0.8]{figures/lin-growth-varying-b}
+  \caption{Graphs of exponential growth, \(y=mx+b\)}%
+  \label{fig:linear-growth}
+\end{figure}
+
+Our goal in this section is to show that the recursive definition of
+linear growth is equivalent to familiar equational model of lines:
+\(y=mx+b\) where \(m\) is the slope and \(b\) gives the
+\(y\)-intercept of the graph, see Figure~\ref{fig:linear-growth}.
+
 Let \(P_0\equiv P(0)\), and recall the recursive definition:
-\(P(x+1) = P(x) + d \)
+\(P(x+1) = P(x) + d \):
 \begin{align*}
-  P(1) &= P_0 + d \\
-  P(2) &= P(1) + d = (P_0 + d) + d = P_0 + 2d \\
-  P(3) &= P(2) + d = (P_0 + 2d) + d = P_0 + 3d \\
-  P(4) &= P(3) + d = (P_0 + 3d) + d = P_0 + 4d \\
-       & \: \: \vdots \\
-  P(x) &= P_0 + xd\\
+  P(1) &= P(0) + d = P_{0} + d & P(1) &= P_{0} + d\\
+  P(2) &= P(1) + d = (P_{0} + d) + d & P(2) &= P_{0} + 2d \\
+  P(3) &= P(2) + d = (P_{0} + 2d) + d & P(3) &= P_{0} + 3d \\
+  P(4) &= P(3) + d = (P_{0} + 3d) + d & P(4) &= P_{0} + 4d \\
+       & \: \: \vdots && \\
+  P(x) &= P_{0} + xd &&\\
   \intertext{Or equivalently,}
-  \Aboxed{P(x) &= dx + P_0}
+  \Aboxed{P(x) &= dx + P_0} &&
 \end{align*}
 where \(d\) is the slope or growth rate, and \(P_0\) is the
 \(y\)--intercept, or initial population.
+
+\newpage
 
 \section{Exponential Growth}%
 \label{sec:exponential-growth}
@@ -78,23 +97,313 @@ where \(d\) is the slope or growth rate, and \(P_0\) is the
 \subsection{Recursive Exponential Growth Model}%
 \label{sec:recursive-exponential}
 
+Again, let \(P=\) population, \(x=\) time measured in years, then we
+predict the population next year, \(P(x+1)\), to be the population
+this year, \(P(x)\), plus a fixed percentage, \(r\), of this year's
+population:
+\begin{equation}
+  P(x+1) = P(x) + rP(x) \qquad \Rightarrow \qquad
+  \boxed{P(x+1) = P(x)(1+r)}
+\end{equation}
+Thus \textbf{exponential growth} (or decay) is characterized by the
+\emph{ratio} of populations from \emph{consecutive} years, equaling
+the constant: \(1+r\).
+\[
+  \boxed{\frac{P(x+1)}{P(x)} = 1+r}
+\]
 
 \subsection{Explicit Exponential Growth Model}%
-\label{sec:explicit-exponential}
+\label{sub:explicit-exponential}
 
-\subsection{Logarithms}%
+Let \(P_{0}\equiv P(0)\), and recall the recursive definition: \(P(x+1) = P(x)(1+r) \)
+\begin{align*}
+  P(1) &= P_{0}(1+r) & P(1) &= P_{0}{(1+r)}^{1}\\
+  P(2) &= P(1)(1+r) = P_{0}(1+r)(1+r) & P(2) &= P_{0}{(1+r)}^2 \\
+  P(3) &= P(2)(1+r) = P_{0}{(1+r)}^2(1+r) & P(3) &= P_{0}{(1+r)}^3 \\
+  P(4) &= P(3)(1+r) = P_{0}{(1+r)}^3(1+r) & P(4) &= P_{0}{(1+r)}^4 \\
+       & \: \: \vdots &&\\
+  \Aboxed{P(x) &= P_0{(1+r)}^x} &&
+\end{align*}
+where \(r\) is the growth rate, and \(P_0\) is the \(y\)--intercept,
+or initial population.
+\begin{figure}[b]
+  \centering
+  \includestandalone[scale=0.8]{figures/exp-growth-varying-b}
+  \includestandalone[scale=0.8]{figures/exp-growth-varying-a}
+  \caption{Graphs of exponential growth, \(y=ab^{x}\)}%
+  \label{fig:exponential-growth}
+\end{figure}
+
+\newpage
+
+\subsection{Summary of Growth Models}%
+\label{sub:summary-growth-models}
+
+\begin{center}
+  {\renewcommand{\arraystretch}{2}
+    \begin{tabular}[h!]{rcc}
+      \toprule
+      & Linear & Exponential \\
+      \toprule
+      Recursive Form & \(P(x+1) = P(x)+d\) & \(P(x+1) = P(x)(1+r)\) \\
+      \midrule
+      Constant & \(P(x+1) - P(x) = d\)  & \(\dfrac{P(x+1)}{P(x)} = 1+r\) \\
+      \midrule
+      Explicit Form & \(P(x) = dx + P_0\) & \(P(x) = P_0{(1+r)}^x \) \\
+      \midrule
+      Alternate Form & \(y = mx + b\) & \(y = a b^{x}\) \\
+      \bottomrule
+    \end{tabular}
+  }
+\end{center}
+
+\begin{exercise}
+  Suppose your company is building a solar plant. The plant had 112
+  solar panels in 2007 and had 884 in 2018. Assuming the growth is
+  \emph{linear}, find an explicit formula for the growth of solar
+  panels.
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\newpage
+
+\begin{exercise}
+  Suppose you bought a house for \$193,000 and it is worth \$299,000
+  in 2018.
+
+  \begin{enumerate}
+  \item Find the rate of growth and common ratio of you bought the
+    house in 1998.
+
+    \vspace*{\stretch{1}}
+  \item Find the rate of growth and common ratio of you bought the
+    house in 2008.
+
+    \vspace*{\stretch{1}}
+  \end{enumerate}
+\end{exercise}
+
+\newpage
+
+\section{Logarithms}%
 \label{sec:logarithms}
 
+A \textbf{logarithm} (with base \(b\)) is the inverse of
+exponentiation (with base \(b\)), symbolically:
+\[
+  y = {b}^{x} \quad \Leftrightarrow \quad x = \log_{b}(y).
+\]
+\begin{example}
+  The following two equations (statements) are equivalent:
+  \[
+    8 = 2^{3} \quad \Leftrightarrow \quad 3 = \log_{2}(8).
+  \]
+\end{example}
+What this means is that a logarithm of a value is an exponent, or we
+understand logarithms in terms of their equivalent exponential. Thus
+the expression, \(\log_{2}(32)\), can be turned into a question by
+writing it as an equation with an unknown, \(x\):
+\[
+  \log_{2}(32) \qquad \longrightarrow \qquad \log_{2}(32) = x.
+\]
+This equation is equivalent to asking, ``Which
+exponent of 2 equals 32?''.
+\[
+  \log_{2}(32) = x \quad \Leftrightarrow \quad 32 = 2^{x}
+\]
+and of course the answer is 5, thus \(\log_{2}(32) = 5\).
+
+Another way of stating the above equivalence is to think in terms of
+function composition. Recall that when a function, \(f(x)\), and its
+inverse, \(f^{-1}(x)\) are composed via function composition, \ie{}
+\(\circ\), then the composition is the \emph{identity} function which
+just maps the input to the output. Symbolically, this means:
+\begin{align*}
+  \log_{b}(x) \circ b^{x} &= \id(x) & \log_{b}(b^{x}) &= x \\
+  b^{x} \circ \log_{b}(x) &= \id(x) & b^{\log_{b}(x)} &= x.
+\end{align*}
+
+\subsection{Properties of Logarithms}%
+\label{sub:properties-logarithms}
+
+
+There are a few useful properties of the logarithm function we should
+review:
+\begin{align}  % TODO label equations
+  \log(a\cdot b) &= \log(a) + \log(b) \label{eq:log-product}\\
+  \log\left( \frac{a}{b} \right) &= \log(a) - \log(b) \label{eq:log-ratio}\\
+  \log\left( a^{n} \right) &= n \log(a) \label{eq:log-power}
+\end{align}
+
+The easiest way to remember
+equations~\eqref{eq:log-product},\eqref{eq:log-ratio}
+and~\eqref{eq:log-power} is to remember the following phrases:
+\begin{quote}
+  ``The log of a product is the sum of the logs.''\\
+  ``The log of a quotient is the difference of the logs.''\\
+  ``The log of an exponential is the exponent times the log''
+\end{quote}
+We will use the last property frequently when solving problems
+involving exponential growth and decay.
+
+\newpage
+
+\begin{exercise}
+  Rewrite the expression \(\log_{3}(5)+\log_{3}(8)-\log_{3}(2)\) as a
+  single logarithm.
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+One final useful logarithm formula is the \textbf{change of
+  base} formula which allows us to compute logarithms in any given
+base, \(b\), via either \emph{common logarithms}, \ie{} base 10, or
+\emph{natural logarithms} (base \(e \approx 2.718\)).
+
+\begin{equation}
+  \label{eq:logarithmic-base-change}
+  \boxed{\log_{b}(a)  = \frac{\log(a)}{\log(b)} = \frac{\ln(a)}{\ln(b)}}
+\end{equation}
+\begin{example}
+  Suppose you need to know what power of 5 equals 100, \ie{}
+  \(5^{x} = 100\). The correct value for \(x\) must be between 2 and three because:
+  \[
+    5^{2} = 25 < 100 < 125 = 5^{3}
+  \]
+  We can solve this problem exactly by translating the exponential
+  equation into the equivalent logarithmic equation,
+  \[
+    5^{x} = 100 \quad \Leftrightarrow \quad x = \log_{5}(100)
+  \]
+  and then using the change of base formula:
+  \[\log_{5}(100)
+    = \frac{\log(100)}{\log(5)}
+    = \frac{\ln(100)}{\ln(5)}
+    \approx 2.8614  \quad \Leftrightarrow \quad
+    5^{2.8614} \approx 100.\]
+\end{example}
+
+\begin{exercise}
+  Suppose a Pacific island was discovered by Polynesians around 400
+  C.E. by 60 people. Assume the the population grows at a constant
+  rate of 1\% per year.
+
+  \begin{enumerate}
+  \item Find an explicit formula to model this population.
+    \vspace*{\stretch{1}}
+  \item How long will it take for this population to reach 300,000
+    people? What year is this? \vspace*{\stretch{1}}
+  \item How long will it take for this population to reach 3 million
+    people? What year? \vspace*{\stretch{1}}
+  \end{enumerate}
+\end{exercise}
+
+\newpage
+
+\begin{exercise}
+  Carbon-14 is a radioactive isotope of carbon with a half-life of
+  about 5730 years. What is the yearly decay rate as a percentage?
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\begin{exercise}
+  If you start with a 5 micro gram sample of pure carbon-14, how much
+  of it will still be carbon-14 after 100 years?
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\newpage
 
 \section{Logistic Growth}%
 \label{sec:logistic-growth}
 
-\section{Summary}%
-\label{sec:growth-models-summary}
+Exponential growth has a serious problem because it predicts
+``runaway'' growth after a certain amount of time. For example, if we
+model world population via the exponential growth model, it predicts
+that the earth will eventually reach populations of 100 billion, a
+trillion and even much higher levels. Now, no one knows exactly how
+many humans could actually live on Earth and with new technologies
+that number might substantially increase, but unbounded growth cannot
+last forever. At some point, people would be standing on top of other
+people, not to mention valuable resources such as food and water would
+eventually run out.
+
+The fundamental assumption of the exponential growth model is that the
+growth rate, \(r\), is constant. However, what social scientists have
+learned about populations is that they do not grow forever in
+unbounded fashion. Eventually, a population's growth rate will tend to
+decrease as competition for valuable resources such as food and water
+increases. The \textbf{logistic growth} model takes this variable
+growth rate into account by assuming that the growth rate decreases
+linearly with population size. That is,
+
+\begin{align*}
+  \label{eq:logistic-growth-rate}
+  r_{L} &= r \left( 1 - \frac{P}{K} \right) \\ \\
+  r &= \text{ base growth rate} \\
+  P &= \text{ population} \\
+  K &= \text{ carrying capacity}
+\end{align*}
+
+If we replace \(r\) in the recursive form of the exponential growth
+model with \(r_{L}\), then we get:
+\begin{equation}
+  \label{eq:logistic-growth-model}
+  P(x+1) = P(x) + r \left( 1 - \frac{P}{K} \right) P(x).
+\end{equation}
+The above equation is the recursive \textbf{logistic growth} model
+\newpage
+
+\begin{exercise}
+  Suppose some tiny tropical fish are introduced into a large aquarium
+  and the population grows at 7\% annually. A few years later, the
+  caretaker notices that the population is not growing as fast as it
+  did before.
+
+  In what follows, assume the tank can sustain a maximum population of
+  600 fish.
+
+  \begin{enumerate}
+  \item If there are currently 400 fish, use the logistic model to
+    predict next year's population.
+
+    \vspace*{\stretch{1}}
 
 
+  \item What is the current rate of growth?
 
+    \vspace*{\stretch{1}}
 
+  \item What do you expect to happen to the growth rate as the
+    population grows?
+
+    \vspace*{\stretch{1}}
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Suppose the world's human population has a base rate of growth of
+  roughly 2.8\% and the earth has a carrying capacity of around 12
+  billion humans.
+
+  \begin{enumerate}
+  \item Estimate the rate of growth in 1975 when the world population
+    was 4 billion.
+
+    \vspace*{\stretch{1}}
+
+  \item Estimate the rate of growth in 1987 when the world population
+    was 5 billion.
+
+    \vspace*{\stretch{1}}
+
+  \item Estimate the rate of growth in 2011 when the world population
+    reached 7 billion.
+  \end{enumerate}
+\end{exercise}
 
 
 %%% Local Variables:

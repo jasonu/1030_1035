@@ -4,26 +4,408 @@
 \section{Simple Interest}%
 \label{sec:simple-interest}
 
+
+\begin{definition}
+  \textbf{Simple interest} refers to a one-time interest payment.
+  Simple interest is used for short-term loans.
+  \begin{align}
+    I &= rP_{0} \notag \\
+    A &= P_{0} + I \notag \\
+    A &= P_{0} + rP_{0} \notag \\
+    \Aboxed{A &= P_{0}(1+r)} \label{eq:simple-interest}
+    \intertext{where,}
+    I &= \text{ interest} \notag \\
+    A &= \text{ account balance (amount in the account)} \notag \\
+    P_{0} &= \text{ principal (starting amount)} \notag \\
+    r &= \text{ interest rate (in decimal)} \notag
+  \end{align}
+\end{definition}
+
+\begin{exercise}
+  A friend agrees to loan you \$500 to help you buy a new laptop. You
+  agree to pay them back in 30 days with 3\% interest. How much will
+  you owe your friend in 30 days?
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\newpage
+\section{Simple Interest Over Time}%
+\label{sec:simple-interest}
+
+
+\begin{definition}
+  \textbf{Simple interest over time} refers to a fixed interest
+  payment that accrues once each year. Simple interest is used for
+  bonds. A \textbf{bond} is a loan that you make to the government.
+  All levels of government issue bonds; municipal, state and federal.
+
+  \medskip
+
+  \noindent When you purchase a bond, the government agrees to pay you a fixed
+  interest payment each year until the bond \emph{matures} whereupon
+  they return the initial amount they borrowed from you. A bond
+  matures after a fixed number of years, often 5, 10, 20 or 30 years.
+
+  \begin{align}
+    I &= rP_{0}n \notag \\
+    A_{n} &= P_{0} + I \notag \\
+    A_{n} &= P_{0} + rP_{0}n \notag \\
+    \Aboxed{A_{n} &= P_{0}(1+rn)} \label{eq:bond-interest}
+    \intertext{where,}
+    I &= \text{ interest} \notag \\
+    A_{n} &= \text{ account balance (amount in the account)} \notag \\
+    P_{0} &= \text{ principal (starting amount)} \notag \\
+    r &= \text{ interest rate (in decimal)} \notag \\
+    n &= \text{ time (in years)} \notag
+  \end{align}
+\end{definition}
+\begin{note}
+  Simple interest over time corresponds with \emph{linear growth}.
+  \begin{align*}
+    f(x) &= mx + b, \\
+    A_{n} &= (rP_{0})n + P_{0},
+  \end{align*}
+  where \(rP_{0}\) is the slope (or fixed amount of yearly increase),
+  and \(P_{0}\) is the \(y\)-intercept.
+\end{note}
+
+\begin{exercise}
+  Suppose you buy a municipal bond from your local city government to
+  help fund construction projects at the local zoo. The bond costs
+  \$2000, pays 2.5\% interest annually and matures in 10 years. How
+  much interest will you earn?
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\newpage
+
 \section{Compound Interest}%
 \label{sec:compound-interest}
+
+\begin{definition}
+  \textbf{Compound interest} refers to any situation where prior
+  interest payments also accrue interest.
+  \begin{align}
+    \Aboxed{A_{n}&= P_{0} {\left( 1+\frac{r}{k} \right)}^{nk}}
+      \label{eq:compound-interest}\\
+    \intertext{where,}
+    A_{n} &= \text{ account balance after } n \text{ years.} \notag \\
+    P_{0} &= \text{ principal (starting amount)} \notag \\
+    r &= \text{ annual interest rate (in decimal)} \notag \\
+    k &= \text{ the number of compounding periods per year} \notag
+  \end{align}
+\end{definition}
+\begin{note}
+  If \(k=1\), \ie{} there is only one compounding per year then the
+  formula becomes
+  \[
+    \boxed{A_{n} = P_{0}{(1+r)}^{n},}
+  \]
+  which is the \emph{exponential population model}.
+\end{note}
+
+\begin{exercise}
+  Suppose you deposit \$1000 into a bank account which earns 3\%
+  interest compounded monthly. How much money will you have after one
+  year?
+
+  \vspace*{\stretch{1}}
+  \noindent Answer: \$1,030.42
+\end{exercise}
+
+\newpage
+
+\begin{exercise}
+  A certificate of deposit (CD) is a savings instrument that many
+  banks offer. It usually gives a higher interest rate, but you cannot
+  access your investment for a specified length of time. Suppose you
+  deposit \$3000 in a CD paying 6\% interest, compounded monthly. How
+  much will you have in the account after 20 years?
+
+  \vspace*{\stretch{1}}
+  \noindent Answer: \$9,930.61
+\end{exercise}
+
+\begin{exercise}
+  Again suppose you purchase a CD that pays 6\% interest compounded
+  monthly. How long will it take for your initial deposit (the
+  principal, \(P_{0}\)) to double?
+
+  \medskip
+
+  \noindent\emph{Hint: You don't need to know the principal, just use
+    the symbol \(P_{0}\).}
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\newpage
 
 \section{Saving Annuities}%
 \label{sec:annuities}
 
+\begin{definition}
+  A \textbf{savings annuity} is an account into which regular payments
+  are made for a fixed number of years. When the annuity matures you
+  receive the payments and the interest that each payment accrued.
+
+  \begin{align}
+    \Aboxed{A_{n}
+    &= \frac{d\left[ {\left( 1+\frac{r}{k} \right)}^{nk} - 1 \right]}
+      {\left( \frac{r}{k} \right)}} \\
+    \intertext{where,}
+    A_{n} &= \text{ account balance after } n \text{ years.} \notag \\
+    d &= \text{ regular deposit} \notag \\
+    r &= \text{ annual interest rate (in decimal)} \notag \\
+    k &= \text{ the number of compounding periods per year} \notag
+  \end{align}
+\end{definition}
+
+\begin{exercise}
+  At the age of 30, Susan, opens a savings annuity account that pays
+  6\% interest compounded monthly. She agrees to make a deposit of
+  \$200 every month for 35 years. How much will the annuity be worth
+  after 35 years when she is 65?
+
+  \vspace*{\stretch{1}}
+  \noindent Answer: \$284,000.06
+\end{exercise}
+
+\newpage
+
+When retirement planning, the object is to determine how much you need
+to save each month now in order to have a guaranteed fixed income
+during your retirement years. This requires solving the savings
+annuity formula for \(d\):
+
+\begin{align}
+  A_{n}
+  &=\frac{d\left[ {\left( 1+\frac{r}{k} \right)}^{nk} - 1 \right]}
+    {\left( \frac{r}{k} \right)} \notag \\
+  A_{n}\left( \frac{r}{k} \right)
+  &=d\left[ {\left( 1+\frac{r}{k} \right)}^{nk} - 1 \right] \notag \\
+  \frac{A_{n}\left( \frac{r}{k} \right)}
+  {\left[ {\left( 1+\frac{r}{k} \right)}^{nk} - 1 \right]}
+  &=d \notag \\
+  \Aboxed{d
+  &=\frac
+    {A_{n} \left( \frac{r}{k} \right)}
+    {\left[ {\left( 1+\frac{r}{k} \right)}^{nk} - 1 \right]}}%
+    \label{eq:savings-annuity-pmt}
+\end{align}
+
+\begin{exercise}
+  Suppose you know that you are going to need \$400,000 when you
+  retire. If you don't yet have any retirement savings, but you have
+  35 years until you will retire, how much do you need to save each
+  month into an annuity that pays 7\% interest compounded monthly to
+  amass a \$400,000 nest egg?
+
+  \vspace*{\stretch{1}}
+  \noindent Answer: \$222.09
+\end{exercise}
+
+\newpage
 
 \section{Payout Annuities}%
 \label{sec:payout-annuities}
 
+\begin{definition}
+  A \textbf{payout annuity} is an account from which regular payments
+  are made to you for a fixed number of years. After the fixed number
+  of years, the annuity is worth nothing. Payout annuities are often
+  used for retirement, payment of lottery winnings and payment of
+  legal settlements.
+
+  \begin{align}
+    \Aboxed{P_{0}
+    &= \frac{d\left[ {1 - \left( 1+\frac{r}{k} \right)}^{-nk} \right]}
+      {\left( \frac{r}{k} \right)}} \label{eq:payout-annuity} \\
+    \intertext{where,}
+    P_{0} &= \text{Principal or starting balance} \notag \\
+    d &= \text{ regular payment} \notag \\
+    r &= \text{ annual interest rate (in decimal)} \notag \\
+    k &= \text{ the number of compounding periods per year} \notag
+  \end{align}
+\end{definition}
+
+\begin{exercise}
+  In retirement, you determine that you will need \$2,500 per month
+  for a total of 30 years. If the annuity earns 6\% interest, how much
+  principal will you need to fund this retirement annuity? And how
+  much will the annuity pay out over its lifetime?
+
+  \vspace*{\stretch{1}}
+  \noindent Answers: \$416,979.04, \$900,000.00
+\end{exercise}
+
+\newpage
+
+\subsection{Retirement Planning}%
+\label{sub:retirement-planning}
+
+\begin{exercise}
+  Suppose you are currently 25 years old, but you plan to begin saving
+  for retirement at age 30 and you plan to retire at age 65. You
+  determine that you would like to have \$4000 per month for 30 years.
+  \begin{enumerate}
+  \item How much principal will you need at age 65 to fund a payout
+    annuity if the annuity yields 6\% interest?
+
+    \vspace*{\stretch{3}}
+
+  \item How much will you need to save each month beginning at age 30
+    if your savings annuity yields 8\% interest?
+
+    \vspace*{\stretch{3}}
+
+  \item How much will you need to save each month if you begin saving
+    for retirement at age 25 instead of 30, so you will have
+    \(65-25=40\) total years of saving?
+
+    \vspace*{\stretch{3}}
+
+  \item How much money did you save for retirement? (Use calculation
+    from question 3.)
+
+    \vspace*{\stretch{1}}
+
+  \item And how much money in total did you receive from that
+    investment?
+
+    \vspace*{\stretch{1}}
+
+  \end{enumerate}
+
+  \noindent Answers: (1) \$667,166.46, (2) \$290.85, (3) \$191.11,
+  (4) \$91,732.80, (5) \$1,440,000.00
+\end{exercise}
+
+\newpage
+
 \section{Loans}%
 \label{sec:loans}
+
+In this section, you will learn about conventional loans (also called
+amortized loans or installment loans). Examples include auto loans and
+home mortgages. These techniques do not apply to payday loans, add-on
+loans, or other loan types where the interest is calculated up front.
+
+One great thing about loans is that they use exactly the same formula
+as a payout annuity. To see why, imagine that you had \$10,000
+invested at a bank, and started taking out payments while earning
+interest as part of a payout annuity, and after 5 years your balance
+was zero. Flip that around, and imagine that you are acting as the
+bank, and a car lender is acting as you. The car lender invests
+\$10,000 in you. Since you're acting as the bank, you pay interest.
+The car lender takes payments until the balance is zero.
+\[
+  \boxed{P_{0}
+    = \frac{d\left[ {1 - \left( 1+\frac{r}{k} \right)}^{-nk} \right]}
+    {\left( \frac{r}{k} \right)}}
+\]
+\begin{exercise}
+  You can afford to pay \$280 per month for a car payment. If you
+  qualify for an auto loan at 3\% interest for a term of 60 months (5
+  years), how expensive of a car can you afford?
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\noindent Answer: \$15,582.66
+
+\newpage
+
+Often when taking out a loan, you know the principal of the loan, but
+you need to figure out what that amounts to in monthly payments. To do
+this we can solve the payout annuity formula~\eqref{eq:payout-annuity}
+for \(d\), the payment amount:
+
+\begin{align*}
+  P_{0}
+  &= \frac{d\left[ {1 - \left( 1+\frac{r}{k} \right)}^{-nk} \right]}
+    {\left( \frac{r}{k} \right)} \\
+  P_{0}\left( \frac{r}{k} \right)
+  &= d\left[ {1 - \left( 1+\frac{r}{k} \right)}^{-nk} \right] \\
+  \frac{P_{0}\left( \frac{r}{k} \right)}
+  {\left[ {1 - \left( 1+\frac{r}{k} \right)}^{-nk} \right]}
+  &= d \\ \\
+  \Aboxed{
+  d &=
+      \frac{P_{0}\left( \frac{r}{k} \right)}
+      {\left[ {1 - \left( 1+\frac{r}{k} \right)}^{-nk} \right]}
+  }
+\end{align*}
+\begin{exercise}
+  You wish to take out a \$300,000 mortgage (home loan). If you
+  qualify for a fixed interest rate of 4\% and you choose a 30 year
+  term. How much will your monthly payments be?
+
+  \vspace*{\stretch{1}}
+\end{exercise}
+
+\noindent Answer: \$1,432.25
+\newpage
 
 \section{Loan Payoff}%
 \label{sec:loan-payoff}
 
+To determine the remaining loan balance, we can think ``how much loan
+will these loan payments be able to pay off in the remaining time on
+the loan?''
 
+\begin{note}
+  Many people mistakenly believe that the payoff amount is simply
+  their monthly payment times the number of remaining payments. This
+  will always be more than the actual payoff amount.
+\end{note}
 
+\begin{exercise}
+  Suppose you purchased your home with a 30 year mortgage for
+  \$250,000 at a 3.5\% interest rate. Your monthly morgage payment is
+  \$1122.61.
 
+  \begin{enumerate}
+  \item If you have made payments for 5 years (60 payments), what is
+    the payoff amount? In other words how much money would you have to
+    give the lender today to settle the mortgage debt?
 
+    \vspace*{\stretch{3}}
+
+  \item How much have you payed to the bank (mortgage lender) over
+    five years?
+
+    \vspace*{\stretch{1}}
+
+  \item How much of the money you payed went towards interest?
+
+    \vspace*{\stretch{1}}
+
+  \end{enumerate}
+\end{exercise}
+
+\noindent Answers: (1) \$224,242.68, (2) \$67,356.60, (3) \$41,599.28
+
+\newpage
+
+\begin{exercise}
+  Suppose your monthly car payment is \$366.
+
+  \begin{enumerate}
+  \item If your loan has a 5 year term and you have made payments for
+    3 years (36 payments) what is your loan payoff amount?
+
+    \vspace*{\stretch{1}}
+
+  \item How much in total will you pay if you continue making payments
+    for two years?
+
+    \vspace*{\stretch{1}}
+
+  \end{enumerate}
+\end{exercise}
 
 
 %%% Local Variables:
